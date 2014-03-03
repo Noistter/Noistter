@@ -1,2 +1,2 @@
-class FooterController < AplicationController
+class FooterController < ApplicationController
 end
