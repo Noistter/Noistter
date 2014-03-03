@@ -1,0 +1,27 @@
+
+<ul class="timeline">
+  <%= button_to "Actualizar", {:action => "index"}, :class => 'btn_update', :id => 'btn_update', :remote => true %>
+  <%@count=0 %>
+    <% for tweet in @timeline %>
+        <%@count=@count+1 %>
+        <li>
+          <div class="user">
+            <%= image_tag tweet.instance_variable_get(:@perfilimg) %>            
+            <span>
+              @<%= tweet.instance_variable_get(:@username) %>
+            </span>
+            </br>
+            <%= link_to "FAV", "#", :remote => true ,  id:tweet.instance_variable_get(:@id) , class: "fav" %>
+          </div>
+          <p>
+            <%= tweet.instance_variable_get(:@text) %></br> (REPLIES <%= tweet.instance_variable_get(:@respuestas)%>) (FAVs <%= tweet.instance_variable_get(:@favorite_count) %>) (RTs <%= tweet.instance_variable_get(:@retweet_count) %>) (Puntuación: <%= number_with_precision tweet.instance_variable_get(:@puntuacion), :precision => 2 %>)
+          </p>
+          <% if tweet.instance_variable_get(:@retweeted_by) != "" %>
+            <p>Retuiteado por @<%= tweet.instance_variable_get(:@retweeted_by) %></p>
+          <% end %>
+        </li>
+      <% if @count==20 %> <!-- Aqui se podria cambiar el 10 por una variable LIMIT segun el nº que quieras mostrar-->
+        <% break %>
+      <% end %>
+    <% end %>
+ </ul>

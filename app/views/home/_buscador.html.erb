@@ -1,0 +1,61 @@
+<div class="buscador">
+	<div class="container">
+		<div class="six columns">
+      <%= form_tag(controller:"buscador", action:"index", method: "post") do %>
+			<span class="buscador_title">Nueva búsqueda:</span>
+			<ul class="opciones_busqueda_cont animar">
+				<li class="opcion seleccionada">
+					<label for="opcion_tl"><div class="icono"><span class="icono_texto">TL</span></div></label>
+          <%= radio_button_tag(:opcion, "tl", name: "group2") %><label for="opcion_tl">TL</label>
+        </li><li class="opcion">
+       <label for="opcion_usuario"><div class="icono"><span class="icono_texto">@</span></div></label>
+        <%= radio_button_tag(:opcion, "usuario", name: "group2") %><label for="opcion_usuario">Usuario</label>
+        </li><li class="opcion">
+					<label for="opcion_hashtag"><div class="icono"><span class="icono_texto">#</span></div></label>
+          <%= radio_button_tag(:opcion, "hashtag", name: "group2") %><label for="opcion_hashtag">Hashtag</label>
+        </li><li class="opcion">
+					<label for="opcion_termino"><div class="icono"><span class="icono_texto">A</span></div></label>
+        <%= radio_button_tag(:opcion, "termino", name: "group2") %><label for="opcion_termino">Término</label>
+        </li>
+			</ul>
+			<div class="buscador_input">
+        <%= text_field_tag(:busqueda, nil, placeholder: "Escribe tu búsqueda") %>
+			</div>
+      <div class="buscador_submit">
+				<%= submit_tag("BUSCAR") %>
+			</div>
+    <% end %>
+    <!--
+			<span class="buscador_title">Nueva búsqueda:</span>
+			<ul class="opciones_busqueda_cont animar">
+				<li class="opcion seleccionada">
+					<div class="icono"><span class="icono_texto">TL</span></div>
+					<span class="opcion_texto">Timeline</span>
+				</li><li class="opcion">
+					<div class="icono"><span class="icono_texto">@</span></div>
+					<span class="opcion_texto">Usuario</span>
+				</li><li class="opcion">
+					<div class="icono"><span class="icono_texto">#</span></div>
+					<span class="opcion_texto">Hashtag</span>
+				</li><li class="opcion">
+					<div class="icono"><span class="icono_texto">A</span></div>
+					<span class="opcion_texto">Término</span>
+				</li>
+			</ul>
+			<div class="buscador_input">
+				<input type="text" placeholder="Búsqueda en Timeline" >
+			</div><div class="buscador_submit">
+				<input type="submit" value="BUSCAR" >
+			</div>-->
+		</div>
+		<div class="six columns">
+			
+		</div>
+		<div class="gatillo animar">
+			<span class="gatillo_row"  ></span>
+			<span class="gatillo_texto">Búsqueda avanzada</span>
+      <span class="gatillo_search"  ></span>
+			<span class="gatillo_row"  ></span>
+		</div>
+	</div>
+</div>

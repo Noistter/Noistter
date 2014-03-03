@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="UTF-8">
+	<title>Noistter</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" type="text/css" href="https://dl.dropboxusercontent.com/u/12328089/CSS/base.css">
+	<link rel="stylesheet" type="text/css" href="https://dl.dropboxusercontent.com/u/12328089/CSS/skeleton.css">
+  <link rel="stylesheet" type="text/css" href="https://dl.dropboxusercontent.com/u/12328089/CSS/noistter/layout.css">
+  
+	<!-- Favicons
+	================================================== -->
+	
+	<!-- Scripts
+	================================================== -->
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.8/jquery-ui.min.js"></script>
+  <%= javascript_include_tag "application" %>
+</head>
+<body>
+	<header>    
+	<div class="container">
+			<div class="logo_cont">
+        <%= link_to "noistter", "home", id: "logo" %>
+			</div>
+    <span class="gatillo_menu"></span>
+			<nav class="right columns">
+          <span class="close_menu">X</span>
+					<ul>           
+            <li><a class="trigger_tweet" href='#'><span>Tuitear</span><span class="icon_tuitear"></span></a></li>
+            <li><a href='/perfil'><span>Perfil</span><span class="icon_perfil"></span></a></li>
+						<li><a href=''><span>Rss</span><span class="icon_rss"></span></a></li>
+            <li><a href='/logout'><span>Salir</span><span class="icon_exit"></span></a></li>
+            
+					</ul>
+			</nav>
+			<!--<div class="three columns social-link">
+					<ul>
+						<li><a class="twitter" href='https://twitter.com/noistter'><span>twitter</span></a></li>
+						<li><a class="facebook" href='#'><span>facebook</span></a></li>
+						<li><a class="googleplus" href='#'><span>google+</span></a></li>
+					</ul>
+			</div>-->
+		</div>
+	</header>

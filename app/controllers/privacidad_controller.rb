@@ -1,0 +1,2 @@
+class PrivacidadController < ApplicationController   
+end

@@ -1,0 +1,2 @@
+module LandpageHelper
+end

@@ -1,0 +1,23 @@
+
+<div class="eight columns">
+  <iframe width="560" height="315"  src="//www.youtube.com/embed/<%= @id_video %>" frameborder="0" allowfullscreen autoplay></iframe> 
+</div>
+<div class="eight columns"> 
+  <h1><%= @hashtag %></h1>
+  <ul class="timeline">
+    <% @result.first(20).each do |tweet| %>
+        <li>
+          <div class="user">
+            <%= image_tag tweet.instance_variable_get(:@perfilimg) %>            
+            <span>
+              @<%= tweet.instance_variable_get(:@username) %>
+            </span>
+            </br>
+          </div>
+          <p>
+            <%= tweet.instance_variable_get(:@text) %>
+          </p>
+        </li>
+    <% end %>
+ </ul>
+</div>

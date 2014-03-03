@@ -1,0 +1,10 @@
+<section class="container">
+  <%= @opcion %> </br>
+  Busqueda: <%= @busqueda %> </br>
+  <% @result.first(10).each do |t| %> 
+    <%= t.id %>
+    <%= t.username %>
+    <%= t.text %>
+    <%= t.puntuacion %></br>
+  <% end %>
+</section>
