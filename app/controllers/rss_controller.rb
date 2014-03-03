@@ -1,4 +1,4 @@
-class RssController < ApplicationController
+class RssController < ApplicationController::Base
   def index
     
     #@posts = Post.all(:select => "title, author, id, content, posted_at", :order => "posted_at DESC", :limit => 5)

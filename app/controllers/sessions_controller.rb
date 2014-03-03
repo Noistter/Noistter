@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class SessionsController < ApplicationController::Base
   skip_before_filter :require_login
   
   def create

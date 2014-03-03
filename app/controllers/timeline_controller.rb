@@ -1,5 +1,5 @@
 require 'Tpuntuado'
-class TimelineController < ApplicationController
+class TimelineController < ApplicationController::Base
   layout :resolve_layout
 
 	  def resolve_layout

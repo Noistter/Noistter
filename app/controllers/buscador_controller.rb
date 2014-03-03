@@ -1,6 +1,6 @@
 require 'Tpuntuado'
 
-class BuscadorController < ApplicationController
+class BuscadorController < ApplicationController::Base
   
   def index
     @busqueda=params[:busqueda]

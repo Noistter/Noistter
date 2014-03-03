@@ -1,4 +1,4 @@
-class LandpageController < ApplicationController
+class LandpageController < ApplicationController::Base
   
     #def index
     #  require 'twitter'
