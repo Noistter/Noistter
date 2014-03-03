@@ -1,4 +1,4 @@
-class PerfilController < ApplicationController::Base
+class PerfilController < ApplicationController
   def index
     #@img_usuario = client.user.profile_image_url
     @img_usuario = client.user.profile_image_url(:original) #normal, bigger, mini, original

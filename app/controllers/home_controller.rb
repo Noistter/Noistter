@@ -1,6 +1,6 @@
 require 'Tpuntuado'
 
-class HomeController < ApplicationController::Base
+class HomeController < ApplicationController
     layout :resolve_layout
 
 	  def resolve_layout

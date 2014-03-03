@@ -1,2 +1,3 @@
-class PrivacidadController < ApplicationController::Base   
+class PrivacidadController < ApplicationController
+  
 end

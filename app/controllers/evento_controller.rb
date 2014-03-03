@@ -1,4 +1,4 @@
-class EventoController < ApplicationController::Base
+class EventoController < ApplicationController
   layout :resolve_layout
   
   class TweetLive
