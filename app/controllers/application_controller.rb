@@ -1,23 +1,3 @@
-#Use a before_filter. Place the following in your application controller.
-
-# application_controller.rb
-
-#before_filter :require_login
-
-#private
-
-#  def require_login
-#    unless current_user
-#      redirect_to login_url
-#    end
-#  end
-
-#The code above assumes you have defined a method current_user which returns the user record when the user is logged in.
-
-#Then, in your login controller
-
-#skip_before_filter :require_login
-
 require 'json'
 class ApplicationController < ActionController::Base
   protect_from_forgery

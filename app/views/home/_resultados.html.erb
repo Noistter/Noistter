@@ -1,7 +1,4 @@
   <h1>RESULTADOS</h1>
-
-    <%= auto_link("link @user, please #request") %>
-
     <% @count=0 %>
     <% @timeline.first(10).each do |tweet| %> 
       <%@count=@count+1 %>        
@@ -14,8 +11,7 @@
       <% end %>
       <% end %>
         <p>
-          <%= tweet.text %>
-          <!--<%= auto_link("@user") %>-->
+          <%= tweet.text.html_safe %>
           <!--<a href="<%= tweet.link %>", target="_blank"><%= tweet.link %></a></br>
           (REPLIES <%= tweet.respuestas %>) (FAVs <%= tweet.favorite_count %>) (RTs <%= tweet.retweet_count %>) (Puntuación: <%= number_with_precision tweet.puntuacion, :precision => 2 %>)
           -->
@@ -23,18 +19,19 @@
        
         <div class="twcontrols">
           <div class="user">
-            <a class="user_perfil" href="http://twitter.com/<%= tweet.username %>", target="_blank"><%= image_tag tweet.perfilimg,  :class => "avatar", alt: "Avatar" %></a>
-            <a class="user_name" href="http://twitter.com/<%= tweet.username %>", target="_blank">@<%= tweet.username %> 
+            <a class="user_perfil" href="http://twitter.com/<%= tweet.username %>" target="_blank"><%= image_tag tweet.perfilimg,  :class => "avatar", alt: "Avatar" %></a>
+            <a class="user_name" href="http://twitter.com/<%= tweet.username %>" target="_blank">@<%= tweet.username %></a>
+            
                 <% if tweet.retweeted_by != "" %>
-                    (RT por @<%= tweet.retweeted_by %>)
+                  RT por <a class="user_name" href="http://twitter.com/<%= tweet.retweeted_by %>" target="_blank">@<%= tweet.retweeted_by %></a>
                 <% end %>
-            </a>
+            
           </div>
-          <div class="control">
+          <!--<div class="control">
             <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "fav" %>
             <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "rt" %>
             <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "save" %>
-          </div>
+          </div>-->
         </div>
       </div>
     <% end %>

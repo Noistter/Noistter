@@ -1,6 +1,6 @@
 <footer>
 		<div class="container">
-      <div class="thirteen columns ft_link">
+     <!-- <div class="thirteen columns ft_link">
 					<ul>
 						<li><span>Noistter 2014 Todos los derechos reservados</span></li>
 						<li><span>//</span></li>
@@ -21,7 +21,7 @@
 					</ul>
 			</div>
 		</div>
-     
+     -->
 		</div>
 </footer>
 
@@ -29,7 +29,8 @@
       <div class="overlay_contenedor">
         <span class="close_tuitear">X</span>
         <p>Publica un nuevo Tweet...</p>
-        <textarea class="texttweet" rows="20"></textarea>
+        <textarea class="texttweet" rows="20" maxlength="140" onload="contarCaracteres()" onchange="contarCaracteres()" onKeyUp="contarCaracteres()"></textarea>
+        <span class="caracteres">140</span>
         <a href="#" class="btn btn_yellow" id="bt_send_tweet">Twittear</a>
         <div class="confirm_tweet"></div>
       <div>

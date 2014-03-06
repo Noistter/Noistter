@@ -25,12 +25,4 @@ class SessionsController < ApplicationController
     reset_session
     redirect_to root_path, notice: "Signed out"
   end
-  
-  def tuitear
-    t = Time.now
-    t.strftime("%I:%M%p")
-    client.update(t)
-    redirect_to :back
-  end
-
 end
