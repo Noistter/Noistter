@@ -110,7 +110,7 @@ $( document ).ready(function() {
   });
   
   
-  $( "#bt_ver_evento" ).click(function() {
+  $( "#bt_ver_evento" ).click(function() { 
 	  $.ajax({type: 'get', 
 	  	url: "evento/live", 
       data: { idvideo:  $("#id_video").val(), hashtag:  $("#ht_evento").val() },
@@ -126,4 +126,8 @@ $( document ).ready(function() {
 
 function contarCaracteres(){
   $(".caracteres").html(140-$(".texttweet").val().length)
+}
+
+function onloader(){
+  alert("HOLAAAA");    
 }

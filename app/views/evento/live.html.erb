@@ -4,7 +4,7 @@
 </div>
 <div class="eight columns"> 
   <h1><%= @hashtag %></h1>
-<!--  <ul class="timeline">
+ <ul class="timeline">
     <% @result.first(20).each do |tweet| %>
         <li>
           <div class="user">
@@ -19,39 +19,7 @@
           </p>
         </li>
     <% end %>
- </ul>-->
+ </ul>
 
 
 </div>
-<!--
-<% @count=0 %>
-    <% @result.first(10).each do |tweet| %> 
-      <%@count=@count+1 %>        
-      <% if @count<4 %>
-        <div class="eight columns twcard  s<%= @count %>">
-      <% else if @count<7 %>
-          <div class="one-third column twcard s4">
-      <% else %>
-          <div class="four columns twcard s6">
-      <% end %>
-      <% end %>
-        <p>
-          <%= tweet.text %>
-        </p>
-            <!-- Falta maquetar
-       <div class="control">
-            <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "fav" %>
-            <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "rt" %>
-            <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "save" %>
-        </div>-->
- <!--       <div class="twcontrols">
-          <div class="user">
-            <a class="user_perfil" href="http://twitter.com/<%= tweet.username %>", target="_blank"><%= image_tag tweet.perfilimg,  :class => "avatar", alt: "Avatar" %></a>
-            <a class="user_name" href="http://twitter.com/<%= tweet.username %>", target="_blank">@<%= tweet.username %> 
-                <% if tweet.retweeted_by != "" %>
-                    (RT por @<%= tweet.retweeted_by %>)
-                <% end %>
-            </a>
-          </div>
-        </div>
-      </div>-->

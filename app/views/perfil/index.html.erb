@@ -3,44 +3,26 @@
  	<div class="ten columns profile_content">
  		<div class="user_twitter_profile">
       
-      <!--A COPIAR
-
-        <div class="two columns">
-          <%= image_tag @img_usuario, class: 'scale-with-grid' %>  
-        </div>
-        <h1>@<%= @usuario %></h1>
-        <h3>Descripción: <%= @descripcion %></h3>
-        <h3>De: <%= @location %></h3>
-        <h3>Tuits: <% @tuits %></h3>
-        <h3>Seguidores:  <%= @followers %></h3>
-        <h3>Siguiendo: <%= @following %></h3>
-        <h3>Listas: <%= @listas %></h3>
-        <h3>Favoritos: <%= @favoritos %></h3>
-        <h3>Creado el: <%= @creado %></h3>
-        <h3>Idioma: <%= @idioma %></h3>
-      
-      -->
-      
- 			<img class="pr_image" src="profile.jpeg" alt="Titan_92">
- 			<p class="pr_name">Cristian Vázquez</p>
- 			<p class="pr_nickname">@Titan_92</p>
- 			<p class="pr_bio">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, numquam delectus similique!</p>
+      <%= image_tag @img_usuario, class: 'pr_image', title: @usuario %>
+ 			<p class="pr_name"><%= @nombre %></p>
+      <p class="pr_nickname"><a href="http://twitter.com/<%= @usuario %>" target="_blank">@<%= @usuario %></a></p>
+ 			<p class="pr_bio"><%= @descripcion %></p>
  		</div>
  		<div class="user_twitter_numbers">
  			<div class="count_tweets">
  				<span class="pr_label">Tweets</span>
- 				<span class="pr_count">11.000</span>
+ 				<span class="pr_count"><% @tuits %></span>
  			</div>
  			<div class="count_following">
  				<span class="pr_label">Siguiendo</span>
- 				<span class="pr_count">334</span>
+ 				<span class="pr_count"><%= @following %></span>
  			</div>
  			<div class="count_followers">
  				<span class="pr_label">Seguidores</span>
- 				<span class="pr_count">301</span>
+ 				<span class="pr_count"><%= @followers %></span>
  			</div>
 
- 			 <a href="http://twitter.com/titan_92" target="_blank" class="btn border uppercase right">Perfil completo</a>
+ 			 <a href="http://twitter.com/<%= @usuario %>" target="_blank" class="btn border uppercase right">Perfil completo</a>
  		</div>
  	</div>
     <div class="three columns"></div>

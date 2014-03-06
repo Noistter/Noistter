@@ -2,6 +2,7 @@ class PerfilController < ApplicationController
   def index
     #@img_usuario = client.user.profile_image_url
     @img_usuario = client.user.profile_image_url(:original) #normal, bigger, mini, original
+    @nombre = client.user.name
     @usuario = client.user.username
     @tuits = client.user.tweets_count
     @followers = client.user.followers_count
