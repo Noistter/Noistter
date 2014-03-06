@@ -10,26 +10,24 @@
           <div class="four columns twcard s6">
       <% end %>
       <% end %>
-        <p>
-          <%= tweet.text.html_safe %>
-
-          <script type="text/javascript">
-            window.onload = arroba;
-            function arroba () {
-              if(tweet.text){
-                alert("HOLAA"); 
-              }
-              else{
-                //alert("HOLAA"); 
-              }                          
-            }
-          </script>
-          
+        <p class="tweettext">
+          <%= tweet.text.html_safe %>          
           
           <!--<a href="<%= tweet.link %>", target="_blank"><%= tweet.link %></a></br>
           (REPLIES <%= tweet.respuestas %>) (FAVs <%= tweet.favorite_count %>) (RTs <%= tweet.retweet_count %>) (Puntuación: <%= number_with_precision tweet.puntuacion, :precision => 2 %>)
           -->
         </p>
+            
+            <script type="text/javascript">
+            window.onload = arroba;
+            function arroba () {
+                          
+              $(".tweettext:contains('@')").each(function() {
+                  tweet = $(this).text();
+                  alert(tweet);
+              });
+            }
+          </script>
        
         <div class="twcontrols">
           <div class="user">

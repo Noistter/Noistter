@@ -48,7 +48,7 @@ class BuscadorController < ApplicationController
           @respuestas=0
         end
     end
-    @tpuntuacion.sort!{|e, f| -e.instance_variable_get(:@puntuacion) <=> -f.instance_variable_get(:@puntuacion)}
+    @tpuntuacion.sort!{|e, f| -e.puntuacion <=> -f.puntuacion}
     @result=@tpuntuacion    
     @taux=[]
   end
