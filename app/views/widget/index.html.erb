@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+<%= stylesheet_link_tag "widget" %>	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.8/jquery-ui.min.js"></script>
+  <%= javascript_include_tag "application" %>  
+</head>
+<body class="widget_body">
+  <header>
+        <h3><%=@hashtag%><h3>
+  </header>
+  <section class="widget_content">
+     <div class="eight columns"> 
+        <% @result.first(20).each do |tweet| %>
+          <div class="twcard">
+            <p class="tweettext"> 
+              <%= tweet.instance_variable_get(:@text) %>
+            </p>
+           
+            <div class="twcontrols">
+              <div class="user">
+                <a class="user_perfil" href="http://twitter.com/<%= tweet.instance_variable_get(:@username) %>" target="_blank"><%= image_tag tweet.instance_variable_get(:@perfilimg), class:'avatar' %> </a>
+                <a class="user_name" href="http://twitter.com/<%= tweet.instance_variable_get(:@username) %>" target="_blank">@<%= tweet.instance_variable_get(:@username) %></a>
+              </div> 
+            </div>
+          </div>
+        <% end %>
+     </ul>    
+    </div>
+  </section>
+    
+  <footer>
+    <span>Tecnología por noistter.com</span>
+    <br></br>
+    <a class="twitter-hashtag-button" href="https://twitter.com/intent/tweet?button_hashtag=<%=@hashtag%>" data-via="noistter" data-related="noistter" target="_blank">Nuevo tweet <%=@hashtag%></a>  
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </footer>
+
+</body>
+</html>

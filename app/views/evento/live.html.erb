@@ -1,23 +1,27 @@
 
-<div class="eight columns">
+<div class="eight columns video_cont">
+  <div class="banner">
+    banner publicitario    
+  </div>
+<div class="iframecontent">
   <iframe width="560" height="315"  src="//www.youtube.com/embed/<%= @id_video %>" frameborder="0" allowfullscreen autoplay></iframe> 
+  </div> 
+  <h1><%= @hashtag_name %></h1>
 </div>
 <div class="eight columns"> 
-  <h1><%= @hashtag %></h1>
- <ul class="timeline">
     <% @result.first(20).each do |tweet| %>
-        <li>
+      <div class="twcard">
+        <p class="tweettext"> 
+          <%= tweet.instance_variable_get(:@text) %>
+        </p>
+       
+        <div class="twcontrols">
           <div class="user">
-            <%= image_tag tweet.instance_variable_get(:@perfilimg) %>            
-            <span>
-              @<%= tweet.instance_variable_get(:@username) %>
-            </span>
-            </br>
-          </div>
-          <p>
-            <%= tweet.instance_variable_get(:@text) %>
-          </p>
-        </li>
+            <a class="user_perfil" href="http://twitter.com/<%= tweet.instance_variable_get(:@username) %>" target="_blank"><%= image_tag tweet.instance_variable_get(:@perfilimg), class:'avatar' %> </a>
+            <a class="user_name" href="http://twitter.com/<%= tweet.instance_variable_get(:@username) %>" target="_blank">@<%= tweet.instance_variable_get(:@username) %></a>
+          </div> 
+        </div>
+      </div>
     <% end %>
  </ul>
 

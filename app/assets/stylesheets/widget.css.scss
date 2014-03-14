@@ -1,0 +1,53 @@
+// Place all the styles related to the widget controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/*WIDGET*/
+html, body { 
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline; 
+}
+
+.widget_body { 
+  margin: 0; 
+  padding: 0; 
+  background: #fff; 
+  border-radius: 10px; 
+}
+
+body { 
+  font: 15px/22px 'Open Sans', Century Gothic, Helvetica, Arial, sans-serif; 
+}
+
+.widget_body header  { 
+  background: #444;
+  color: #fff;
+  width: 100%;
+  border-radius: 10px 10px 0px 0px;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+  top: 0;
+}
+
+.widget_content { 
+  height: 169px;
+  overflow-y: scroll;
+  position: relative;
+  overflow-x: hidden;
+}
+
+header h3 { margin:0; }
+
+footer {
+  background: #444;
+  color: #fff;
+  width: 100%;
+  border-radius: 0px 0px 10px 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+}

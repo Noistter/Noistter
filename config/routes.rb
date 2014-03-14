@@ -75,6 +75,8 @@ Noister::Application.routes.draw do
   
   #Buscador
   post 'buscador' , to: 'buscador#index' , as: 'buscador'
+  get '/buscar' , to: 'buscador#index' , as: 'buscador' 
+  get '/buscar/:tipo/:termino' , to: 'buscador#busqueda' , as: 'buscador'  
   
   #Privacidad
   get '/privacidad', to: 'privacidad#index', as: 'privacidad'
@@ -85,6 +87,8 @@ Noister::Application.routes.draw do
   #Evento
   get '/evento', to: 'evento#index', as: 'evento'
   get '/evento/live' , to: 'evento#live' , as: 'ajax' 
+  
+  get '/widget/:hashtag' , to: 'widget#index' , as: 'ajax' 
 
   # See how all your routes lay out with "rake routes"
 

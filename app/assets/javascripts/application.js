@@ -21,12 +21,21 @@ $( document ).ready(function() {
 	  	url: "timeline/sendtweet", 
       data: { tuit:  $(".texttweet" ).val() },
 	  	success: function (response) {
+                    $(".caracteres").html(140)
+                    $(".caracteres").css({ color: "#777"});
                     $( "#btn_update" ).trigger('click');
                     $(".texttweet").val("");
-                    $( ".confirm_tweet" ).append(response);
+                    $(".confirm_tweet").css({ color: "#00ff00"});
+                    $( ".confirm_tweet" ).html(response);
 
                 }, 
-	  	error: function() { $( ".confirm_tweet" ).append('Error al enviar!'); }
+	  	error: function() {
+        $(".confirm_tweet").css({ color: "#ff0000"});
+        if($(".texttweet").val().length == 0)
+          $(".confirm_tweet").html('No puedes enviar un tweet vacío');
+        else
+          $(".confirm_tweet").html('Has superado los 140 caracteres permitidos');
+      }
 	   });
 	  return(false); 
 	});
@@ -97,11 +106,12 @@ $( document ).ready(function() {
   
   $( ".trigger_tweet" ).click(function() { 
        $('.overlay_tuitear').addClass('desplegado');
+       contarCaracteres()
        $('.texttweet').focus();
-       $('.texttweet').attr("maxlength", 140);
   });
   
-  $( ".overlay_tuitear, .close_tuitear" ).click(function() { 
+  $( ".overlay_tuitear, .close_tuitear" ).click(function() {
+       $(".confirm_tweet").html('');
        $('.overlay_tuitear').removeClass('desplegado');      
   });
   
@@ -122,12 +132,43 @@ $( document ).ready(function() {
 	  return(false); 
 	}); 
   
+    $( "#bt_busqueda" ).click(function() { 
+	  $.ajax({type: 'get', 
+	  	url: "buscar", 
+      data: { tipo:  $('input[name="group2"]:checked').val(), busqueda:  $("#busqueda").val() },
+	  	success: function (response) {
+          $( ".evento_container" ).html(response);
+      }, 
+	  	error: function() { $( ".evento_container" ).append('Error al buscar'); }
+	   });
+	  return(false); 
+	}); 
+  
 });
 
 function contarCaracteres(){
+  
   $(".caracteres").html(140-$(".texttweet").val().length)
+      
+  if($(".texttweet").val().length > 130)
+    $(".caracteres").css({ color: "#ff0000"});
+  else
+    $(".caracteres").css({ color: "#777"});
 }
 
-function onloader(){
-  alert("HOLAAAA");    
-}
+$(document).ready(function(){
+    $(window).scroll(function(){
+      if( $(window).width()>767){
+        $('.video_cont').css('margin-top',$(window).scrollTop()+10);
+      }
+      else { $('.video_cont').css('margin-top',10); }
+    });
+});
+
+$(window).onResize(function() {
+   if( $(window).width()<767){
+     $('.video_cont').css('margin-top',10);
+   }
+  
+  //Falta alto widget (resta)
+});

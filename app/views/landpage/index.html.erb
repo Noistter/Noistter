@@ -3,7 +3,7 @@
             <div class="nine columns">
                 <p class="subtitle">Porque Internet es demasiado grande</p>
                 <h1 class="title">Bienvenido a Noistter</h1>
-                <p class="description">Te ayudamos a leer el contenido más relevante de la red. Filtramos Twitter.</p>
+                <p class="description">Lo que a la gente le interesa. Lo que a ti te interesa. Aquí, en Noistter.</p>
                 <div class=" social-link">
 					<ul>
 						<li><a class="twitter" href='#'><span>twitter</span></a></li>
@@ -54,4 +54,38 @@
 		</div>
         <div class="six columns"><img class="scale-with-grid " src="images/profile.png" /></div>
         <div class="two columns"></div><div class="clearfix"></div> 
+</section>
+<section class="container noistter_en_numeros">
+		<h1>Noistter en números</h1>
+  
+  <div class="one-third column twcard">
+    <p><%=@usuarios%> usuarios registrados, <%=@usuariosconectados%> conectados en este momentos</p>
+  </div>
+  <div class="one-third column twcard">
+    <p><%=@cuentaeventos%> eventos retransmitidos, <%=@emitiendoeventos%> emitiendose en este momento</p>
+  </div>
+  <div class="one-third column twcard">
+    <p><%=@rssgenerados%> RSS generados, con una media de 2 por usuario</p>
+  </div>
+  
+  <div class="eight columns twcard">
+    <p><%=@busquedas%> búsquedas realizadas:</p>
+    <ul>
+      <li> En timeline, <%=@porcentajetl%>% </li>
+      <li> Perfil de usuario, <%=@porcentajeperfil%>% </li>
+      <li> Hashtag, <%=@porcentajehashtag%>% </li>
+      <li> Término, <%=@porcentajetermino%>% </li>
+    </ul>
+  </div>
+  <div class="eight columns twcard">
+    <p>Los usuarios de noistter navegan desde:</p>
+    <ul>
+      <li> <%=@porcentajepc%>% PC </li> 
+      <li> <%=@porcentajetablet%>% Tablet </li>  
+      <li> <%=@porcentajesmartphone%>%  Smartphone </li>
+      <li> 1%  Otros </li> 
+    </ul>
+  </div>
+  
+  
 </section>

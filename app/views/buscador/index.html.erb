@@ -8,3 +8,36 @@
     <%= t.puntuacion %></br>
   <% end %>
 </section>
+
+<section class="container">
+      <%= form_tag do %>
+  		<!--<label for="id_video">Introduce el ID del video:</label>
+		<input type="text" placeholder="ID video" id="id_video">
+		<label for="ht_evento">Introduce el hashtag a seguir:</label>
+		<input type="text" placeholder="#" id="ht_evento">
+		<a id="bt_ver_evento" class="btn yellow" href="">Seguir evento</a>-->
+  
+			<span class="buscador_title">Nueva búsqueda:</span>
+			<ul class="opciones_busqueda_cont animar">
+				<li class="opcion seleccionada">
+					<label for="opcion_tl"><div class="icono"><span class="icono_texto">TL</span></div></label>
+          <input type="radio" name="group2" value="tl" id="opcion_tl" checked="checked"><label for="opcion_tl">TL</label>
+        </li><li class="opcion">
+       <label for="opcion_usuario"><div class="icono"><span class="icono_texto">@</span></div></label>
+        <input type="radio" name="group2" value="usuario" id="opcion_usuario"><label for="opcion_usuario">Usuario</label>
+        </li><li class="opcion">
+					<label for="opcion_hashtag"><div class="icono"><span class="icono_texto">#</span></div></label>
+          <input type="radio" name="group2" value="hashtag" id="opcion_hashtag"><label for="opcion_hashtag">Hashtag</label>
+        </li><li class="opcion">
+					<label for="opcion_termino"><div class="icono"><span class="icono_texto">A</span></div></label>
+          <input type="radio" name="group2" value="termino" id="opcion_termino"><label for="opcion_termino">Término</label>
+        </li>
+			</ul>
+			<div class="buscador_input">
+        <input type="text" placeholder="Escribe tu búsqueda" id="busqueda">
+			</div>
+      <div class="buscador_submit">
+				<a id="bt_busqueda" class="btn yellow" href="">Buscar</a>
+			</div>
+    <% end %>
+  </section>

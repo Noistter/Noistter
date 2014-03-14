@@ -1,4 +1,4 @@
-  <h1>RESULTADOS</h1>
+  <h1>TOP 10 TWEETS</h1>
     <% @count=0 %>
     <% @timeline.first(10).each do |tweet| %> 
       <%@count=@count+1 %>        
@@ -18,16 +18,20 @@
           -->
         </p>
             
-            <script type="text/javascript">
+            <!--<script type="text/javascript">
             window.onload = arroba;
             function arroba () {
                           
               $(".tweettext:contains('@')").each(function() {
-                  tweet = $(this).text();
-                  alert(tweet);
+                /*tweet = $(this).text();
+                  tweet.replace("@","afd");*/
+                var tweet = $(this).text();
+                tweet = tweet.replace("@", "");                
+                $(this).children(".tweet-url.username").html("@"+$(this).children(".tweet-url.username").text());
+                //$(this).html(this);
               });
             }
-          </script>
+          </script>-->
        
         <div class="twcontrols">
           <div class="user">
@@ -35,15 +39,15 @@
             <a class="user_name" href="http://twitter.com/<%= tweet.username %>" target="_blank">@<%= tweet.username %></a>
             
                 <% if tweet.retweeted_by != "" %>
-                  RT por <a class="user_name" href="http://twitter.com/<%= tweet.retweeted_by %>" target="_blank">@<%= tweet.retweeted_by %></a>
+            <a class="user_name" href="http://twitter.com/<%= tweet.retweeted_by %>" target="_blank">/ RT por @<%= tweet.retweeted_by %></a>
                 <% end %>
             
           </div>
-          <!--<div class="control">
+          <div class="control">
             <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "fav" %>
             <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "rt" %>
             <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "save" %>
-          </div>-->
+          </div>
         </div>
       </div>
     <% end %>
