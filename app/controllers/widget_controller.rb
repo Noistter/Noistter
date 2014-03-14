@@ -12,17 +12,12 @@ class WidgetController < ApplicationController
   
   def index
     @hashtag = params[:hashtag]
-    @hashtag = "#"+@hashtag
     
-    @timeline = client.search(@hashtag, :count => 2000, :result_type => "recent").collect
-    
-    @result=Array.new
-    @i=0
-    
-    for tweet in @timeline
-      @result[@i]=TweetWidget.new(tweet.id, tweet.text, tweet.user.username ,  tweet.user.profile_image_url)
-      @i=@i+1 
+    if @hashtag[0]!='#'
+      @hashtag = "#"+@hashtag
     end
+         
+    @tpuntuacion = evaluar('hashtag', @hashtag )
   end
   
 end

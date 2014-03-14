@@ -35,7 +35,8 @@ class HomeController < ApplicationController
         end
     end
     @tpuntuacion.sort!{|e, f| -e.instance_variable_get(:@puntuacion) <=> -f.instance_variable_get(:@puntuacion)}
-    @timeline=@tpuntuacion
+    @resultados = Array.new
+     @resultados = @tpuntuacion
     @taux=[]
   end
   
@@ -66,6 +67,7 @@ class HomeController < ApplicationController
   
   def index
     @tpuntuacion=evaluar("tl","")
+    
   end
   
   def update

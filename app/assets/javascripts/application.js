@@ -156,6 +156,9 @@ function contarCaracteres(){
     $(".caracteres").css({ color: "#777"});
 }
 
+
+
+var cont_vermas = 0;
 $(document).ready(function(){
     $(window).scroll(function(){
       if( $(window).width()>767){
@@ -163,12 +166,20 @@ $(document).ready(function(){
       }
       else { $('.video_cont').css('margin-top',10); }
     });
+  
+    $( "#ver_mas" ).click(function() {
+        
+          $('.twcard.oculto').slice(0,8).fadeIn('fast').removeClass('oculto');
+        if($('.twcard.oculto').length == 0)
+          $( "#ver_mas" ).fadeOut();
+    });
 });
 
+/*
 $(window).onResize(function() {
    if( $(window).width()<767){
      $('.video_cont').css('margin-top',10);
    }
   
   //Falta alto widget (resta)
-});
+});*/

@@ -10,14 +10,14 @@ class EventoController < ApplicationController
       end
   end
 
-	  def resolve_layout
-	    case action_name
-      when "index"
+	def resolve_layout
+	   case action_name
+     when "index"
         "evento"
-	    else
+	   else
 	      "ajax"
-      end
-    end
+     end
+  end
   
   def index
     
@@ -33,19 +33,8 @@ class EventoController < ApplicationController
        @hashtag_name="#"+@hashtag
      else
         @hashtag_name=@hashtag       
-     end
-   
+     end 
     
-    @timeline = client.search(@hashtag, :count => 2000, :result_type => "recent").collect
-    
-    @result=Array.new
-    @result = evaluar('hashtag', @hashtag )
-    #@i=0
-    
-    #for tweet in @timeline
-     # @result[@i]=TweetLive.new(tweet.id, tweet.text, tweet.user.username ,  tweet.user.profile_image_url)
-      #@i=@i+1      
-    #end
-    
+    @tpuntuacion = evaluar('hashtag', @hashtag )
   end
 end

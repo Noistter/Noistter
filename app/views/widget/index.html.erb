@@ -18,10 +18,11 @@
   </header>
   <section class="widget_content">
      <div class="eight columns"> 
-        <% @result.first(20).each do |tweet| %>
+        <% @tpuntuacion.first(20).each do |tweet| %>
           <div class="twcard">
             <p class="tweettext"> 
-              <%= tweet.instance_variable_get(:@text) %>
+              
+              <%= tweet.text.html_safe %>
             </p>
            
             <div class="twcontrols">

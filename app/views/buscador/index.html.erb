@@ -1,15 +1,4 @@
 <section class="container">
-  <%= @opcion %> </br>
-  Busqueda: <%= @busqueda %> </br>
-  <% @result.first(10).each do |t| %> 
-    <%= t.id %>
-    <%= t.username %>
-    <%= t.text %>
-    <%= t.puntuacion %></br>
-  <% end %>
-</section>
-
-<section class="container">
       <%= form_tag do %>
   		<!--<label for="id_video">Introduce el ID del video:</label>
 		<input type="text" placeholder="ID video" id="id_video">

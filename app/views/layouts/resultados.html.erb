@@ -1,0 +1,59 @@
+  <h1>Busqueda</h1>
+    <% @count=0 %>
+    <% @tpuntuacion.each do |tweet| %>
+      <%@count=@count+1 %>
+      <% if @count<4 %>
+        <div class="eight columns twcard  s<%= @count %>">
+      <% else if @count<7 %>
+          <div class="one-third column twcard s4">
+      <% else if @count<11 %>
+          <div class="four columns twcard s6"> 
+      <% else %>
+          <div class="four columns twcard s6 oculto">
+      <% end %>
+      <% end %>
+      <% end %>
+        <p class="tweettext">
+          <%= tweet.text.html_safe %>          
+          
+          <!--<a href="<%= tweet.link %>", target="_blank"><%= tweet.link %></a></br>
+          (REPLIES <%= tweet.respuestas %>) (FAVs <%= tweet.favorite_count %>) (RTs <%= tweet.retweet_count %>) (Puntuación: <%= number_with_precision tweet.puntuacion, :precision => 2 %>)
+          -->
+        </p>
+            
+            <!--<script type="text/javascript">
+            window.onload = arroba;
+            function arroba () {
+                          
+              $(".tweettext:contains('@')").each(function() {
+                /*tweet = $(this).text();
+                  tweet.replace("@","afd");*/
+                var tweet = $(this).text();
+                tweet = tweet.replace("@", "");                
+                $(this).children(".tweet-url.username").html("@"+$(this).children(".tweet-url.username").text());
+                //$(this).html(this);
+              });
+            }
+          </script>-->
+       
+        <div class="twcontrols">
+          <div class="user">
+            <a class="user_perfil" href="http://twitter.com/<%= tweet.username %>" target="_blank"><%= image_tag tweet.perfilimg,  class: "avatar", alt: "Avatar" %></a>
+            <a class="user_name" href="http://twitter.com/<%= tweet.username %>" target="_blank">@<%= tweet.username %></a>
+            
+                <% if tweet.retweeted_by != "" %>
+           <!-- <a class="user_name" href="http://twitter.com/<%= tweet.retweeted_by %>" target="_blank">/ RT por @<%= tweet.retweeted_by %></a>-->
+                <% end %>
+            
+          </div>
+          <div class="control">
+            <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "fav" %>
+            <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "rt" %>
+            <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "save" %>
+          </div>
+        </div>
+      </div>            
+    <% end %>
+    <div class="sixteen columns">
+      <a href="javascript:void(0)" class="btn center max300 yellow" id="ver_mas"> Ver más </a> 
+    </div>

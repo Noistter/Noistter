@@ -33,7 +33,6 @@ body {
 }
 
 .widget_content { 
-  height: 169px;
   overflow-y: scroll;
   position: relative;
   overflow-x: hidden;
@@ -48,6 +47,6 @@ footer {
   border-radius: 0px 0px 10px 10px;
   padding: 10px;
   box-sizing: border-box;
-  position: absolute;
+  position: relative;
   bottom: 0;
 }

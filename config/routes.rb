@@ -62,6 +62,7 @@ Noister::Application.routes.draw do
   get '/landpage', to: 'landpage#index', as: 'landpage'
   get '/home', to: 'home#index', as: 'home'
   get '/rss', to: 'rss#index', as: 'rss'
+  get '/rss/:tipo/:termino/atom' , to: 'rss#rss' , as: 'rss'  
   
   
   #Refrescar TL
@@ -74,7 +75,7 @@ Noister::Application.routes.draw do
   get 'retweet' , to: 'application#retweet' , as: 'retweet'
   
   #Buscador
-  post 'buscador' , to: 'buscador#index' , as: 'buscador'
+  #post 'buscador' , to: 'buscador#index' , as: 'buscador'
   get '/buscar' , to: 'buscador#index' , as: 'buscador' 
   get '/buscar/:tipo/:termino' , to: 'buscador#busqueda' , as: 'buscador'  
   

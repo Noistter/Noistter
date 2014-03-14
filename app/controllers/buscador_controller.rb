@@ -4,22 +4,28 @@ class BuscadorController < ApplicationController
   
   def index
     @busqueda=params[:busqueda]
-    @opcion=params[:opcion]
+    @opcion=params[:opcion]    
+    @queBusca=@busqueda
     
-    @busqueda=@busqueda+" filter:links -rt"
+    @busqueda=@busqueda+" filter:links"
+    
+    @tpuntuacion = evaluar('hashtag', @hashtag )
     
     case params[:opcion]
       when "tl"
         @busqueda=@busqueda
-      when "usuario"
+      when "usuario"        
         if @busqueda[0]=='@'
           @busqueda="from:"+@busqueda
+          @queBusca="Tweets de "+@queBusca
         else
           @busqueda="from:@"+@busqueda
+          @queBusca="Tweets de @"+@queBusca          
         end
       when "hashtag"
         if @busqueda[0]!='#'
           @busqueda="#"+@busqueda
+          @queBusca="#"+@queBusca
         end
       else
         @busqueda=@busqueda
