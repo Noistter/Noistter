@@ -1,4 +1,3 @@
-  <h1>Busqueda</h1>
     <% @count=0 %>
     <% @tpuntuacion.each do |tweet| %>
       <%@count=@count+1 %>
@@ -47,13 +46,23 @@
             
           </div>
           <div class="control">
-            <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "fav" %>
-            <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "rt" %>
-            <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "save" %>
+            <% if !tweet.favorited %>
+              <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "fav" %>
+            <% else %>
+              <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "fav true" %>
+            <% end %>
+            <% if !tweet.retweeted %>
+              <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "rt" %>
+            <% else %>
+              <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "rt true" %>
+            <% end %>        
+           <!-- <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "save" %>-->
           </div>
         </div>
       </div>            
     <% end %>
-    <div class="sixteen columns">
-      <a href="javascript:void(0)" class="btn center max300 yellow" id="ver_mas"> Ver más </a> 
-    </div>
+    <% if @tpuntuacion.count >10 %>
+      <div class="sixteen columns">
+        <a href="javascript:void(0)" class="btn center h45 big max300 yellow" id="ver_mas"> Ver más </a> 
+      </div>
+    <% end %>

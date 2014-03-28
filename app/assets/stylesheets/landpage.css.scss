@@ -23,11 +23,11 @@ nav ul { float:right; }
 nav ul li {  }
 header nav a{ color:#fff!important; }
 
-#jumbo { min-height:700px; background:url(../images/jumbo.jpg); padding-top:120px; margin-bottom:50px;  }
+#jumbo { min-height:700px; background:url(../images/jumbo.jpg); padding-top:50px; margin-bottom:50px;  }
 
 #jumbo p, #jumbo h1 { color:#fff; }
-#jumbo p { font-size:22px;  margin-top: 10px; margin-bottom:10px; line-height: 30px;}
-#jumbo h1 { font-size:55px; margin-top: 10px; margin-bottom:10px; line-height: 60px; margin-left: 0px; }
+#jumbo p { font-size:25px;  margin-top: 10px; margin-bottom:10px; line-height: 30px;}
+#jumbo h1 { font-size:65px; margin-top: 10px; margin-bottom:10px; line-height: 80px; margin-left: 0px; }
 
 @media only screen and (max-width: 959px) { 
     .login-container .btn { margin-right: 4.9%;  }

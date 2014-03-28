@@ -1,0 +1,54 @@
+<section class="container widget_container">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> 
+  <script type="text/javascript"> 
+   $(document).ready(function(){ 
+      var iframe,a,b,c; 
+      $("#form_widget .btn").click(function(){ 
+         a = $("#hashtag").val();
+         b = $("#ifheight").val();
+         iframe = '<iframe src="http://noistter-87490.euw1.nitrousbox.com/widget/'+a+'" name="Widget via Noistter" height="'+b+'"></iframe>'; 
+         $("#ifres").val(iframe);
+         c = 'http://noistter-87490.euw1.nitrousbox.com/widget/'+a+'';
+         $('#vista_previa').attr('src',c);
+         $('#vista_previa').attr('height',b);
+      });
+   }); 
+  </script>   
+<div class="eight  columns">
+<h1>Widget Noistter</h1> 
+<h3>Generador de widgets</h3> 
+</div>
+<div class="four columns"></div>
+<div class="clear"></div>
+<div class="four columns"></div>
+<div class="eight  columns">
+  
+</div>
+  <div class="clear"></div>
+<form id="form_widget" onsubmit="return false"> 
+  <div class="one-third column">
+    <span class="widget_paso">1</span>
+      <p>Para crear un widget de Noistter, debes eligir un hashtag y un tamaño. Luego, haz clic en generar.</p>
+      <label for="hashtag">Hashtag a seguir:</label>
+      <input type="text" placeholder="Hashtag" id="hashtag">
+      <label for="ifheight">Altura del widget:</label>
+      <input type="text" placeholder="Altura" id="ifheight">
+      <a href="javascript:void(0)" class="btn h45 right wfull yellow">Generar</a>
+  </div>
+  <div class="one-third column">
+      <span class="widget_paso">2</span>
+      <p>Esta es la vista previa del widget. Échale un vistazo al contenido por si quieres volver a generarlo.</p>
+      <div class=""><iframe id="vista_previa" src="" name="Widget via Noistter" height=""></iframe>
+     </div>
+  </div>
+  <div class="one-third column">
+    <span class="widget_paso">3</span>
+    <p>¡Ya lo tienes! Sólo queda copiar el siguiente código y pegarlo donde quieras que aparezca.</p>
+      <label>Código generado:</label>
+      <textarea name="res" id="ifres" cols="30" rows="5"><iframe src="" name="Widget via Noistter" height=""></iframe></textarea>
+      
+  </div>
+  
+    
+  </form>  
+</section>

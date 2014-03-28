@@ -5,7 +5,7 @@ module ApplicationHelper
   
   #CLASE TPUNTUADO, CON LOS TWEETS FORMATEADOS PARA MOSTRAR
   class Tpuntuado
-      def initialize (id, puntuacion, username, text, link, perfilimg, favorite_count, retweet_count, respuestas, retweeted_by)
+      def initialize (id, puntuacion, username, text, link, perfilimg, favorite_count, retweet_count, respuestas, retweeted_by, retweeted, favorited)
         @id=id
         @puntuacion=puntuacion
         @username=username
@@ -16,6 +16,8 @@ module ApplicationHelper
         @retweet_count=retweet_count
         @respuestas=respuestas
         @retweeted_by=retweeted_by
+        @retweeted=retweeted
+        @favorited=favorited
       end
       def id
         @id
@@ -46,6 +48,12 @@ module ApplicationHelper
       end
       def retweeted_by
         @retweeted_by
+      end
+      def retweeted
+        @retweeted
+      end
+      def favorited
+        @favorited
       end
   end
 end

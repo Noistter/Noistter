@@ -1,7 +1,7 @@
 class LandpageController < ApplicationController
   def index
     @usuarios=8965
-    @usuariosconectados=268
+    @usuariosconectados=1
     @cuentaeventos=325
     @emitiendoeventos=2
     @rssgenerados=5942
@@ -13,5 +13,7 @@ class LandpageController < ApplicationController
     @porcentajepc=48
     @porcentajetablet=21
     @porcentajesmartphone=30
+    
+   
   end
 end

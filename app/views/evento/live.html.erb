@@ -1,18 +1,18 @@
 
 <div class="eight columns video_cont">
   <div class="banner">
-    banner publicitario    
+    <%= @hashtag_name %>   
   </div>
 <div class="iframecontent">
-  <iframe width="560" height="315"  src="//www.youtube.com/embed/<%= @id_video %>" frameborder="0" allowfullscreen autoplay></iframe> 
+  <iframe width="560" height="315"  src="//www.youtube.com/embed/<%= @id_video %>?theme=light&autoplay=1" allowfullscreen></iframe>
   </div> 
   <h1><%= @hashtag_name %></h1>
 </div>
 <div class="eight columns"> 
-    <% @result.first(20).each do |tweet| %>
+    <% @tpuntuacion.first(20).each do |tweet| %>
       <div class="twcard">
-        <p class="tweettext"> 
-          <%= tweet.instance_variable_get(:@text) %>
+        <p class="tweettext">
+          <%= tweet.text.html_safe %>
         </p>
        
         <div class="twcontrols">

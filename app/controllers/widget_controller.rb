@@ -1,5 +1,16 @@
 class WidgetController < ApplicationController
-  layout 'ajax'
+  layout :resolve_layout
+
+	  def resolve_layout
+	    case action_name
+      when "form"
+        "widget"
+	    else
+	      "ajax"
+      end
+    end
+  
+  
   class TweetWidget
     def initialize (id, texto, username, perfilimg)
         @id=id
