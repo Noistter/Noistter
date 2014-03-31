@@ -22,6 +22,7 @@ class BuscadorController < ApplicationController
       @tipo=params[:opcion] #tipo de busqueda
       @termino=params[:busqueda] #termino de la busqueda
       
+    if @termino != ""
       if @tipo == "timeline"
         redirect_to :controller=>'home', :action => 'index'
       else
@@ -36,6 +37,7 @@ class BuscadorController < ApplicationController
           end        
         @titulo = params[:busqueda]      
       end
+    end
   end
   
   def busqueda_ajax

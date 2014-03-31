@@ -75,7 +75,7 @@ class ApplicationController < ActionController::Base
 
   #CALCULAR RELEVANCIA
   def calculo(respuestas, retweets, favoritos, followers, rt)
-    @puntuacion = (respuestas*3+retweets*2+favoritos) / Math.log(Math.sqrt(followers))
+    @puntuacion = (respuestas*5+retweets*3+favoritos) / Math.log(Math.sqrt(followers))
     if rt=="rt"
       @puntuacion=@puntuacion / 2
     end
@@ -91,14 +91,14 @@ class ApplicationController < ActionController::Base
         if termino[0]!='@'
           termino="@"+termino
         end
-        @timeline = client.search("from:"+termino, :include_entities=>true, :count => 2000)
+        @timeline = client.search("from:"+termino+" -rt", :include_entities=>true, :count => 2000)
       when "hashtag"
         if termino[0]!='#'
           termino="#"+termino
         end
-        @timeline = client.search(termino,:include_entities=>true, :count => 2000)
+        @timeline = client.search(termino+" -rt",:include_entities=>true, :count => 2000)
       else # when "termino"
-        @timeline = client.search(termino,:include_entities=>true, :count => 2000)
+        @timeline = client.search(termino+" -rt",:include_entities=>true, :count => 2000)
     end
     @taux = @timeline.find_all{|tweet| tweet.urls != []}
     @tpuntuacion = Array.new

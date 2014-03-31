@@ -26,8 +26,7 @@ Noister::Application.routes.draw do
   #post 'buscador' , to: 'buscador#index' , as: 'buscador'
   get '/buscar' , to: 'buscador#index' , as: 'buscador' 
   get '/buscar/:opcion/:busqueda' , to: 'buscador#busqueda' , as: 'buscador'
-  get '/buscar/:opcion' , to: 'buscador#busqueda' , as: 'buscador' 
-  
+  get '/buscar/:opcion' , to: 'buscador#busqueda' , as: 'buscador'  
   get '/buscar_ajax/:opcion/:busqueda' , to: 'buscador#busqueda_ajax' , as: 'ajax'
   
   #Privacidad

@@ -8,7 +8,7 @@
 			<ul class="opciones_busqueda_cont animar">
 				<li class="opcion seleccionada" id="op_tl">
 					<label for="opcion_timeline"><div class="icono"><span class="icono_texto">TL</span></div></label>
-          <%= radio_button_tag(:opcion, "timeline", :checked) %><label for="opcion_timeline">Mi Timeline</label>
+          <%= radio_button_tag(:opcion, "timeline", :checked) %><label for="opcion_timeline">Home</label>
         </li><li class="opcion">
        <label for="opcion_usuario"><div class="icono"><span class="icono_texto">@</span></div></label>
           <%= radio_button_tag(:opcion, "usuario") %><label for="opcion_usuario">Usuario</label>
@@ -23,8 +23,9 @@
 		</div>     
 		<div class="eight columns">
 			<div class="buscador_input">
-        <%= text_field_tag(:termino, nil, placeholder: "Escribe tu búsqueda", disable: "disabled") %>
+        <%= text_field_tag(:termino, nil, placeholder: "Escribe tu búsqueda", disable: "disabled", class: "invisible") %>
 			</div>
+      <div id="error"></div>
       <div class="buscador_submit">
         <%= submit_tag("BUSCAR", id:"buscar" , class:"btn min300 right yellow") %>
 			</div>

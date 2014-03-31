@@ -21,6 +21,7 @@ class RssController < ApplicationController
   def rss
     @tipo=params[:tipo]
     @termino=params[:termino]
+    
     @tpuntuacion = evaluar( @tipo, @termino ) 
     respond_to do |format|
       format.rss { render :layout => false }

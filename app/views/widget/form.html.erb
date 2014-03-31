@@ -5,12 +5,17 @@
       var iframe,a,b,c; 
       $("#form_widget .btn").click(function(){ 
          a = $("#hashtag").val();
-         b = $("#ifheight").val();
-         iframe = '<iframe src="http://noistter-87490.euw1.nitrousbox.com/widget/'+a+'" name="Widget via Noistter" height="'+b+'"></iframe>'; 
+         b = $("#ifheight").val();     
+        
+        while(a.charAt(0) === '#')
+          a = a.substr(1);
+        
+         iframe = '<iframe src="http://noistter.herokuapp.com/widget/'+a+'" name="Widget via Noistter" height="'+b+'"></iframe>'; 
          $("#ifres").val(iframe);
-         c = 'http://noistter-87490.euw1.nitrousbox.com/widget/'+a+'';
+         c = 'http://noistter.herokuapp.com/widget/'+a+'';
          $('#vista_previa').attr('src',c);
          $('#vista_previa').attr('height',b);
+         $('#vista_previa').slideDown();
       });
    }); 
   </script>   
@@ -33,7 +38,7 @@
       <input type="text" placeholder="Hashtag" id="hashtag">
       <label for="ifheight">Altura del widget:</label>
       <input type="text" placeholder="Altura" id="ifheight">
-      <a href="javascript:void(0)" class="btn h45 right wfull yellow">Generar</a>
+      <a href="javascript:void(0);" class="btn h45 right wfull yellow">Generar</a>
   </div>
   <div class="one-third column">
       <span class="widget_paso">2</span>

@@ -91,6 +91,7 @@ $( document ).ready(function() {
     if($(this).hasClass('desplegado')){
       $(this).removeClass('desplegado');
       $('.buscador').removeClass('desplegado');
+      $('#error').html("") 
     }
     else{
       $(this).addClass('desplegado');
@@ -110,6 +111,7 @@ $( document ).ready(function() {
         $('#termino').css('visibility', 'hidden');
         $('#termino').val("");
         $('#termino').attr('disabled', true);
+        $('#error').html("") 
       }
       else
       { 
@@ -166,27 +168,33 @@ $( document ).ready(function() {
     termino = $("#termino").val()
     opcion = $('input[name=opcion]:checked').val()
     
-    if(opcion == "usuario")
+    if(termino!="" || (termino=="" && opcion=="timeline"))
     {
-      if(termino[0] == '@')
-        termino = termino.replace('@', "")        
-    }
-    else if(opcion =="hashtag")
-    {
-      if(termino[0]=='#')
-        termino = termino.replace('#', "");
-    }
-    else if(opcion =="termino")
-    {
-      if(termino[0]=='#')
+      $('#error').html() 
+      if(opcion == "usuario")
       {
-        termino = termino.replace('#', "");
-        opcion = "hashtag"
+        while(termino.charAt(0) === '@')
+          termino = termino.substr(1)
       }
+      else if(opcion =="hashtag")
+      {
+        while(termino.charAt(0) === '#')
+          termino = termino.substr(1)
+      }
+      else if(opcion =="termino")
+      {
+        if(termino[0]=='#')
+        {
+          while(termino.charAt(0) === '#')
+            termino = termino.substr(1)
+          opcion = "hashtag"
+        }
+      }      
+      var url = '/buscar/'+opcion+"/"+termino; 
+      $(location).attr('href',url);
     }
-    
-    var url = '/buscar/'+opcion+"/"+termino; 
-    $(location).attr('href',url);
+    else
+      $('#error').html("Escribe algo en tu búsqueda") 
 	});  
   
     $(window).scroll(function(){
@@ -204,8 +212,7 @@ $( document ).ready(function() {
   
   if($('.widget_content')[0]){ 
     $('.widget_content').css('height', $(document).height()-131);
-  }
-  
+  }  
   
 });
 
