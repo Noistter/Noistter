@@ -35,6 +35,6 @@ class EventoController < ApplicationController
         @hashtag_name=@hashtag       
      end 
     
-    @tpuntuacion = evaluar('hashtag', @hashtag )
+    @tpuntuacion = evaluar_evento('hashtag', @hashtag )
   end
 end
