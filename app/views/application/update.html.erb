@@ -1,0 +1,17 @@
+<ul class="timeline">
+  <%= button_to "Actualizar", {:action => "index"}, :class => 'btn_update', :id => 'btn_update', :remote => true %>
+    <%@count=0 %>
+    <% for tweet in @timeline %>
+      <%@count=@count+1 %>
+      <li>
+        <div class="user">
+          <%= image_tag tweet.user.profile_image_url %>
+            
+          <span>@<%= tweet.user.username %></span>
+           </br>
+             <%= link_to "FAV", "#", :remote => true ,  id:tweet.id , class: "fav" %>
+        </div>
+        <p><%= tweet.text %></br> (FAVs <%= tweet.favorites_count %>) (RTs <%= tweet.retweet_count %>)</p>
+    </li>
+    <% end %>
+ </ul>

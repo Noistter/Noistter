@@ -1,0 +1,262 @@
+/*
+* Skeleton V1.2
+* Copyright 2011, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 6/20/2012
+*/
+
+
+/* Table of Content
+==================================================
+	#Reset & Basics
+	#Basic Styles
+	#Site Styles
+	#Typography
+	#Links
+	#Lists
+	#Images
+	#Buttons
+	#Misc */
+
+
+/* #Reset & Basics (Inspired by E. Meyers)
+================================================== */
+	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		
+		vertical-align: baseline; }
+	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+		display: block; }
+	body {
+		line-height: 1; }
+	ol, ul {
+		list-style: none; }
+	blockquote, q {
+		quotes: none; }
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none; }
+	table {
+		border-collapse: collapse;
+		border-spacing: 0; }
+
+
+/* #Basic Styles
+================================================== */
+	
+	
+	body {
+		font: 15px/22px 'Open Sans', Century Gothic, Helvetica, Arial, sans-serif;
+		color: #444;
+		-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+		-webkit-text-size-adjust: 100%; background: #E9E9E9; padding-top: 110px;  }
+	header{    
+		width: 100%;
+		height: auto;
+		margin: 0;
+		padding: 0;
+		padding-top: 6px;
+		padding-bottom: 4px;
+		background: #444;
+		border-bottom: 2px solid #353535;
+		color: #fff;
+		position: fixed;
+		top:0;
+		z-index: 100;
+	}
+	header .columns { margin-top: 6px!important; margin-bottom: 3px!important; }
+	
+	footer { width: 100%;  padding-top: 30px;  }
+
+
+	
+	
+	
+	
+/* #Typography
+================================================== */
+	h1, h2, h3, h4, h5, h6, .title_h1, .title_h2 {
+		color: #181818;
+		font-family: 'Raleway', "Georgia", "Times New Roman", serif;
+		font-weight: normal; }
+	.title_h1, .title_h2 { display: block; }
+	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
+	h1, .title_h1 { font-size: 35px; line-height: 40px; margin-bottom: 5px; margin-top: 20px;  }
+	h2, .title_h2 { font-size: 30px; line-height: 33px; margin-bottom: 10px; }
+	h3 { font-size: 24px; line-height: 28px; margin-bottom: 8px; }
+	h4 { font-size: 18px; line-height: 22px; margin-bottom: 4px; }
+	h5 { font-size: 16px; line-height: 20px; }
+	h6 { font-size: 14px; line-height: 21px; }
+	.subheader { color: #777; }
+	
+	span { display: block; }
+	p { margin: 0 0 20px 0; }
+	p img { margin: 0; }
+	p.lead { font-size: 21px; line-height: 27px; color: #777;  }
+
+	em { font-style: italic; }
+	strong { font-weight: bold; color: #333; }
+	small { font-size: 80%; }
+
+/*	Blockquotes  */
+	blockquote, blockquote p { font-size: 17px; line-height: 24px; color: #777; font-style: italic; }
+	blockquote { margin: 0 0 20px; padding: 9px 20px 0 19px; border-left: 1px solid #ddd; }
+	blockquote cite { display: block; font-size: 12px; color: #555; }
+	blockquote cite:before { content: "\2014 \0020"; }
+	blockquote cite a, blockquote cite a:visited, blockquote cite a:visited { color: #555; }
+
+	hr { border: solid #ddd; border-width: 1px 0 0; clear: both; margin: 10px 0 30px; height: 0; }
+
+
+/* #Links
+================================================== */
+	a, a:visited { color: #444; text-decoration: none; outline: 0; }
+	a.underline { text-decoration: underline; }  
+	a.underline:hover { text-decoration: none; } 
+	a:hover, a:focus { color: #000; }
+	p a, p a:visited { line-height: inherit; }
+
+
+/* #Lists
+================================================== */
+	ul, ol { margin-bottom: 20px; }
+	ul { list-style: none inside; }
+	ol { list-style: decimal; }
+	ol, ul.square, ul.circle, ul.disc { margin-left: 30px; }
+	ul.square { list-style: square inside; }
+	ul.circle { list-style: circle inside; }
+	ul.disc { list-style: disc inside; }
+	ul ul, ul ol,
+	ol ol, ol ul { margin: 4px 0 5px 30px; font-size: 90%;  }
+	ul ul li, ul ol li,
+	ol ol li, ol ul li { margin-bottom: 6px; }
+	li { line-height: 18px; margin-bottom: 12px; }
+	ul.large li { line-height: 21px; }
+	li p { line-height: 21px; }
+
+/* #Images
+================================================== */
+
+	img.scale-with-grid {
+		max-width: 100%;
+		height: auto; }
+
+
+/* #Buttons
+================================================== */
+
+	.button,
+	button,
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"] {
+	  color: #444;
+	  display: inline-block;
+	  font-weight: bold;
+	  text-decoration: none;
+	  cursor: pointer;
+	  margin-bottom: 20px;
+	  line-height: normal;
+	  padding: 8px 10px;
+	  font-family: 'Open Sans', Century Gothic, Helvetica, Arial, sans-serif;  font-weight: normal;
+	   }
+
+	.button:hover,
+	button:hover,
+	input[type="submit"]:hover,
+	input[type="reset"]:hover,
+	input[type="button"]:hover {
+		
+    }
+
+	.button:active,
+	button:active,
+	input[type="submit"]:active,
+	input[type="reset"]:active,
+	input[type="button"]:active {
+		
+	}
+
+	.button.full-width,
+	button.full-width,
+	input[type="submit"].full-width,
+	input[type="reset"].full-width,
+	input[type="button"].full-width {
+		width: 100%;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		text-align: center; }
+
+	/* Fix for odd Mozilla border & padding issues */
+	button::-moz-focus-inner,
+	input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+	}
+
+
+/* #Forms
+================================================== */
+	
+	.form_row_full { margin-bottom: 15px;  }
+	form {  margin-top:0px;   }
+
+	fieldset { margin-bottom: 20px; }
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	textarea,
+	select {
+		width: 100%;
+		box-sizing: border-box;
+    -moz-box-sizing: border-box;
+		margin: 0;
+		padding: 10px 2%;
+		border: 1px solid #BBBBBB;
+		font-size: 15px;
+		outline: none;
+		-moz-border-radius: 2px;
+		-webkit-border-radius: 2px;
+		border-radius: 2px;
+		color: #777;
+		max-width: 100%;
+		display: block;
+		margin-bottom: 20px;
+		background: #fff;
+		font-family: 'Open Sans', Century Gothic, Helvetica, Arial, sans-serif;  font-weight: normal; }
+	select { padding: 9px 2%; }
+
+
+	textarea { min-height: 60px; font-family: 'Open Sans', Century Gothic, Helvetica, Arial, sans-serif;  font-weight: normal; }
+	label, legend {
+		display: block;
+		font-weight: bold;
+		font-size: 15px; text-shadow:none; margin-bottom: 5px;   }
+	select {  }
+	input[type="checkbox"] {
+		display: inline; }
+	label span,
+	legend span {
+		font-weight: normal;
+		font-size: 13px;
+		 }
+
+/* #Misc
+================================================== */
+	.remove-bottom { margin-bottom: 0 !important; }
+	.half-bottom { margin-bottom: 10px !important; }
+	.add-bottom { margin-bottom: 20px !important; }
+	.nomargin { margin:0!important; }
+	.nopadding { padding:0!important; }
+	.center { text-align: center; margin: 0 auto; }
+	.invisible { visibility: hidden; }
+  	
+	img.percent90 { max-width: 90%; margin-left: 5%; }
+	
+	

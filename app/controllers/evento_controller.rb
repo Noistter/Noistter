@@ -23,6 +23,8 @@ class EventoController < ApplicationController
     
   end
   
+  @@notamedia=[0,0]
+  @ids=[] 
   def live
     @id_video = params[:idvideo]
     @id_video = @id_video.partition(/.=/)
@@ -35,6 +37,18 @@ class EventoController < ApplicationController
         @hashtag_name=@hashtag       
      end 
     
-    @tpuntuacion = evaluar_evento('hashtag', @hashtag )
+    @tpuntuacion = evaluar_evento('hashtag', @hashtag, 0, 0, @ids)
   end
+  def update
+    @hashtag=params[:hashtag]
+     if @hashtag[0]!='#'
+       @hashtag_name="#"+@hashtag
+     else
+        @hashtag_name=@hashtag       
+     end     
+    @id_since=params[:id_since]
+    
+    @tpuntuacion = evaluar_evento('hashtag', @hashtag, @id_since, @@notamedia, @ids)
+  end
+  
 end

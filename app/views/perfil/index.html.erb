@@ -29,10 +29,16 @@
   
   <div class="sixteen columns">
     <h2>Búsquedas guardadas</h2>
+    <p>Click para ver la búsqueda</p>
   </div>
-  <div class="sixteen columns">
+  <div class="sixteen columns item_search_cont">
     <% @busquedas.each do |busqueda| %>
-      <a href="/buscar/<%=busqueda['tipo']%>/<%=busqueda['termino']%>/" class="btn bigger"><%=busqueda['tipo']%>/<%=busqueda['termino']%></a>
+      <article class="item_search">
+        <a href="/buscar/<%=busqueda['tipo']%>/<%=busqueda['termino']%>/" class="btn bigger">
+          <% if busqueda['tipo'] == "hashtag"%><%="#"%><% end%>
+          <% if busqueda['tipo'] == "usuario"%><%="@"%><% end%><%=busqueda['termino']%></a>
+          <a href="/borrar_busqueda/<%=busqueda['tipo']%>/<%=busqueda['termino']%>/" class="btn crimson delete_item">X</a>
+      </article>
     <% end %>
   </div>
 
@@ -40,15 +46,53 @@
     <h2>Mis RSS</h2>
   </div>
   <div class="all_rss">
-    <% @rss.each do |rss| %> <!--#para cada rss mostramos su ['tipo'] y su  ['termino']-->
-    <article class="sixteen columns item_rss">
-      <div class="about_rss">  <span><%=rss['tipo']%> con término: "<%=rss['termino']%>"</span>   </div>
-      <div class="link_rss"> <input type="text" class="" value="http://noistter.herokuapp.com/rss/<%=rss['tipo']%>/<%=rss['termino']%>/atom.rss"> </div>
-      <div class="edit_rss edit_rss1">
-        <a href="http://noistter.herokuapp.com/rss/<%=rss['tipo']%>/<%=rss['termino']%>/atom.rss">Ver</a>
-        <a href="#">Editar</a>
-      </div>
-    </article>
-    <% end %>
+    <%= render partial: 'rss/all_rss' %>
+    <div class="sixteen columns"><a href="/rss" class="btn orange big center">Nuevo RSS</a></div>
   </div>
+  
+  <div class="sixteen columns">
+    <h2>Tweets favoritos</h2>
+  </div>
+  <div class="all_fav_tweets">
+       <% i = 0 %>
+      <% @tfavoritos.each do |tweet| %>
+        <% if i < 3 %>
+          <div class="one-third column twcard s4">
+          <% else %> 
+          <div class="one-third column twcard s4 oculto">
+       <% end %>
+            <p class="tweettext">
+              <%= tweet.text.html_safe %>
+            </p>
+            <div class="twcontrols">
+              <div class="user">
+                <a class="user_perfil" href="http://twitter.com/<%= tweet.username %>" target="_blank"><%= image_tag tweet.perfilimg,  class: "avatar", alt: "Avatar" %></a>
+                <a class="user_name" href="http://twitter.com/<%= tweet.username %>" target="_blank">@<%= tweet.username %></a>
+
+                    <% if tweet.retweeted_by != "" %>
+                    <!--<a class="user_name" href="http://twitter.com/<%= tweet.retweeted_by %>" target="_blank">/ RT por @<%= tweet.retweeted_by %></a>-->
+                    <% end %>
+
+              </div>
+              <div class="control">
+                <% if !tweet.favorited %>
+                  <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "fav" %>
+                <% else %>
+                  <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "fav true" %>
+                <% end %>
+                <% if !tweet.retweeted %>
+                  <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "rt" %>
+                <% else %>
+                  <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "rt true" %>
+                <% end %>
+              </div>
+            </div>  
+         </div>
+     <% i = i+1 %>
+    <% end %>
+    
+  </div>
+  <% if i > 3 %>
+  <div class="sixteen columns"><a id="ver_mas" href="javascript:void(0)" class="btn yellow big center">Ver más</a></div>
+  <% end %>
 </section>

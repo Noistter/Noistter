@@ -16,6 +16,9 @@
 
 
 $( document ).ready(function() {
+  
+
+    
     $( "#bt_send_tweet" ).click(function() {
 	  $.ajax({type: 'get', 
 	  	url: "timeline/sendtweet", 
@@ -39,30 +42,64 @@ $( document ).ready(function() {
 	  return(false); 
 	});  
   
-    $( "#btn_update" ).click(function() {
-	  $.ajax({type: 'get', 
-	  	url: "timeline/update", 
-	  	success: function (response) {
-                   $( ".timeline_container" ).html(response);
-                }, 
-	  	error: function() { $( ".timeline_container" ).append('Rate Limit!'); }
-	   });
-	  return(false); 
-	  });
   
-    $( ".fav" ).click(function() {
-      //alert($(this).attr('id'));
+  $( ".fav" ).click(function() {
+    var opcion = "";
+    if(!$(this).hasClass('true')){
+      $(this).addClass('true'); 
+      opcion = "/favorite";
+    }
+    else{
+      $(this).addClass('true'); 
+      opcion = "/unfavorite";
+      $(this).removeClass('true');
+      
+    }
 	  $.ajax({type: 'get', 
-	  	url: "favorite",
+	  	url: opcion,
       data: { tuit_id:  $(this).attr('id') },  
-	  	success: function (response) {  $( ".confirm_tweet" ).append(response); }, 
-	  	error: function(response) { $( ".confirm_tweet" ).append(response); }
+	  	success: function (response) { $( ".confirm_tweet" ).append(response); }, 
+	  	error: function(response) {  $( ".confirm_tweet" ).append(response); }
+	   });
+    
+    if($('.all_fav_tweets')[0]){
+      $(this).closest( ".twcard" ).fadeOut();
+      setTimeout(function(){
+        $('.twcard.oculto').eq(0).fadeIn('fast').removeClass('oculto');
+        if($('.twcard.oculto').length == 0)
+          $( "#ver_mas" ).fadeOut();
+      }, 1000);
+      
+    }
+	  return(false); 
+	});
+  
+  $( ".rt" ).click(function() {
+    var opcion = ""
+    if(!$(this).hasClass('true')){
+      $(this).addClass('true'); 
+      opcion = "/retweet";
+    }
+    else{
+      $(this).removeClass('true'); 
+      opcion = "/unretweet";
+    }
+	  $.ajax({type: 'get', 
+	  	url: opcion,
+      data: { tuit_id:  $(this).attr('id') },  
+	  	success: function (response) { $( ".confirm_tweet" ).append(response); }, 
+	  	error: function(response) {  $( ".confirm_tweet" ).append(response); }
 	   });
 	  return(false); 
 	});
   
+/*
+  
     $( ".rt" ).click(function() {
       //alert($(this).attr('id'));
+      $(this).addClass('true');
+      $(this).removeClass('rt');
+      $(this).addClass('unrt');
 	  $.ajax({type: 'get', 
 	  	url: "retweet",
       data: { tuit_id:  $(this).attr('id') },  
@@ -72,6 +109,26 @@ $( document ).ready(function() {
 	  return(false); 
 	});
   
+    $( ".unrt" ).click(function() {
+      //alert($(this).attr('id'));
+    $(this).removeClass('true');
+    $(this).addClass('rt');
+    $(this).removeClass('unrt');
+	  $.ajax({type: 'get', 
+	  	url: "unretweet",
+      data: { tuit_id:  $(this).attr('id') },  
+	  	success: function (response) {  $( ".confirm_tweet" ).append(response); }, 
+	  	error: function(response) { $( ".confirm_tweet" ).append(response); }
+	   });
+	  return(false); 
+	});*/
+  
+   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// FALTA DELETE
+  
+   /* Fin Acciones de un tweet  */
+
+
+  /* RSS */
   
   $( "#previa_rss" ).click(function() { 
 	  $.ajax({type: 'get', 
@@ -79,14 +136,63 @@ $( document ).ready(function() {
 	  	success: function (response) {
                    $( "#vista_previa" ).html(response);
                    $( "#vista_previa").slideDown();
-                   $( "#btn_guardar_rss").show(); 
-                   
+                   $( "#btn_guardar_rss").show();                   
                 }, 
 	  	error: function() { $( "#vista_previa" ).append('Rate Limit!'); }
 	   });
 	  return(false); 
 	  });
   
+  $( "#btn_guardar_rss" ).click(function(e) {
+    e.preventDefault();
+	  $.ajax({type: 'get',   url: "rss/guarda_rss/"+$('#rss_tipo').val()+"/"+$('#rss_termino').val(),
+	  	success: function (response) { }, 
+	  	error: function() {}
+	  });
+    $( ".all_rss").fadeOut();  
+    recargarRSS();
+	  return(false); 
+	});
+  
+
+  
+  $( ".borrar_rss" ).click(function(e) {
+    e.preventDefault();
+    var url = $(this).attr("href");
+	  $.ajax({type: 'get',   url: url,
+	  	success: function (response) { }, 
+	  	error: function() {}
+	  });
+    $(this).closest("article.item_rss").slideUp();
+	  return(false); 
+	});
+  
+    function recargarRSS(){
+        $.ajax({type: 'get',   url: "rss/all_rss",
+        success: function (response) {
+                  $( ".all_rss" ).html(response);  
+                  $( ".all_rss").fadeIn();                  
+        }, 
+        error: function() {  }  });
+        return(false);    
+  }
+  
+    /* Fin rss */
+  
+  /* Perfil borrar una búsqueda */
+    
+  $( ".delete_item" ).click(function(e) {
+    e.preventDefault();
+    var url = $(this).attr("href");
+	  $.ajax({type: 'get',   url: url,
+	  	success: function (response) { }, 
+	  	error: function() {}
+	  });
+    $(this).closest("article.item_search").toggle("left");
+	  return(false); 
+	});
+   
+  /* Busqueda avanzada */
   $( ".gatillo" ).click(function() { 
     if($(this).hasClass('desplegado')){
       $(this).removeClass('desplegado');
@@ -97,7 +203,6 @@ $( document ).ready(function() {
       $(this).addClass('desplegado');
       $('.buscador').addClass('desplegado');
     }
-      
   });
   
   $( "li.opcion" ).click(function() { 
@@ -106,8 +211,6 @@ $( document ).ready(function() {
       
       if($('#op_tl').hasClass( 'seleccionada' ))
       {
-        //$('#termino').addClass('twcard oculto');
-        //$('#termino').removeClass('invisible);
         $('#termino').css('visibility', 'hidden');
         $('#termino').val("");
         $('#termino').attr('disabled', true);
@@ -115,8 +218,6 @@ $( document ).ready(function() {
       }
       else
       { 
-        //$('#termino').removeClass('twcard oculto');
-        //$('#termino').addClass('invisible);
         $('#termino').css('visibility', 'visible');
         $("#termino").attr('disabled', false);
       }
@@ -135,6 +236,9 @@ $( document ).ready(function() {
        $('nav').removeClass('desplegado');      
   });
   
+  /* Fin Busqueda avanzada */
+  
+  /* Nuevo Tweet */
   $( ".trigger_tweet" ).click(function() { 
        $('.overlay_tuitear').addClass('desplegado');
        contarCaracteres()
@@ -148,19 +252,46 @@ $( document ).ready(function() {
   
   $( ".overlay_contenedor" ).click(function(event) { 
        event.stopPropagation();     
-  });  
+  });
+  /* Fin Nuevo Tweet */
   
-  $( "#bt_ver_evento" ).click(function() { 
+
+  
+  $( "#bt_ver_evento" ).click(function() {
+    var hashtag = $("#ht_evento").val();
 	  $.ajax({type: 'get', 
 	  	url: "evento/live", 
       data: { idvideo:  $("#id_video").val(), hashtag:  $("#ht_evento").val() },
 	  	success: function (response) {
           $( ".evento_container" ).html(response);
+          setTimeout(function(){  actualizar_evento(hashtag); }, 20000);
       }, 
 	  	error: function() { $( ".evento_container" ).append('Error al enviar!'); }
 	   });
 	  return(false); 
 	});
+  var update_count = 0;
+    function actualizar_evento (hashtag){
+      var class_id= $(".twcard").eq(0).attr('class');
+      var class_id = class_id.split("_");
+      var id = class_id[class_id.length-1];
+      update_count++;
+      console.log('UPDATE: '+update_count);
+      $.ajax({type: 'get', 
+	  	url: "evento/update", 
+              data: { id_since:id , hashtag:  hashtag },
+	  	        success: function (response) {
+              //$( ".evento_twcard_cont" ).prepend('<p> UPDATE '+update_count+'</p>');
+              $( ".evento_twcard_cont" ).prepend(response);
+      }, 
+	  	error: function() { $( ".evento_twcard_cont" ).append('Error al enviar!'); }
+	   });
+      setTimeout(function(){ actualizar_evento(hashtag); }, 20000);
+      return(false);
+      
+    }
+  
+  /* Buscar */
  
   $( "#buscar" ).click(function(e) {
     e.preventDefault();
@@ -195,8 +326,25 @@ $( document ).ready(function() {
     }
     else
       $('#error').html("Escribe algo en tu búsqueda") 
-	});  
+	}); 
   
+  /* Fin Buscar */
+  
+ 
+  $( "#guardar_busqueda" ).click(function(e) {
+    var str = document.URL;
+    var res = str.split("/");
+    var tipo = res[res.length-2]
+    var termino = res[res.length-1]
+    var url = '/buscar/guardar_busq/'+tipo+"/"+termino;    
+    $(location).attr('href',url);    
+	  return(false);    
+	});
+    
+   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// HACER BORRAR BUSQUEDA
+  
+  
+  /* Evento */
     $(window).scroll(function(){
       if( $(window).width()>767){
         $('.video_cont').css('margin-top',$(window).scrollTop()+10);
@@ -205,7 +353,7 @@ $( document ).ready(function() {
     });
   
     $( "#ver_mas" ).click(function() { 
-      $('.twcard.oculto').slice(0,8).fadeIn('fast').removeClass('oculto');
+      $('.twcard.oculto').slice(0,6).fadeIn('fast').removeClass('oculto');
         if($('.twcard.oculto').length == 0)
           $( "#ver_mas" ).fadeOut();
     });
@@ -226,13 +374,3 @@ function contarCaracteres(){
     $(".caracteres").css({ color: "#777"});
 }
 
-
-
-/*
-$(window).onResize(function() {
-   if( $(window).width()<767){
-     $('.video_cont').css('margin-top',10);
-   }
-  
-  //Falta alto widget (resta)
-});*/

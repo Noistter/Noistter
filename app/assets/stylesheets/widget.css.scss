@@ -13,7 +13,7 @@ html, body {
 .widget_body { 
   margin: 0; 
   padding: 0; 
-  background: #fff; 
+  background: none; 
   border-radius: 10px; 
 }
 
@@ -50,4 +50,58 @@ footer {
   box-sizing: border-box;
   position: relative;
   bottom: 0;
+}
+
+/* line 56, ../../app/assets/stylesheets/widget.css.scss */
+.twcard {
+  border-bottom: 1px solid #D8D8D8;
+  padding: 10px;
+  box-sizing: border-box;
+  background: #fff; 
+}
+
+/* line 58, ../../app/assets/stylesheets/widget.css.scss */
+.user_perfil {
+  width: 30px;
+  display: block;
+  vertical-align: top;
+  float: left;
+}
+
+/* line 59, ../../app/assets/stylesheets/widget.css.scss */
+.user_perfil img {
+  width: 100%;
+}
+
+/* line 60, ../../app/assets/stylesheets/widget.css.scss */
+.user_name, .user_name_full {
+  line-height: 14px;
+  font-size: 12px;
+  width: 80%;
+  margin: 0px;
+  margin-left: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  float: left;
+  color: #444;
+}
+
+/* line 61, ../../app/assets/stylesheets/widget.css.scss */
+.user_name:before {
+  white-space: pre;
+  content: "@";
+}
+
+/* line 62, ../../app/assets/stylesheets/widget.css.scss */
+p.tweettext {
+  margin: 5px auto;
+  font-size: 13px;
+  line-height: 18px;
+  clear: both;
+}
+
+p.tweettext a { 
+  color: #4689EC;
+  text-decoration: inherit;
 }

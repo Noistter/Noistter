@@ -5,10 +5,10 @@
         <div class="eight columns twcard  s<%= @count %>">
       <% else if @count<7 %>
           <div class="one-third column twcard s4">
-      <% else if @count<11 %>
-          <div class="four columns twcard s6"> 
+      <% else if @count<13 %>
+          <div class="one-third column twcard s6"> 
       <% else %>
-          <div class="four columns twcard s6 oculto">
+          <div class="one-third column twcard s6 oculto">
       <% end %>
       <% end %>
       <% end %>
@@ -20,20 +20,29 @@
           -->
         </p>
             
-            <!--<script type="text/javascript">
+            <script type="text/javascript">
             window.onload = arroba;
             function arroba () {
-                          
+               /*           
               $(".tweettext:contains('@')").each(function() {
-                /*tweet = $(this).text();
-                  tweet.replace("@","afd");*/
+                var tweet = $(this).text();
+                tweet = tweet.replace("@","");
+                alert(tweet);
+                $(this).html(tweet);
+              });
+              
+              
+              $(".tweettext:contains('@')").each(function() {
+                tweet = $(this).text();
+                  tweet.replace("@","afd");
                 var tweet = $(this).text();
                 tweet = tweet.replace("@", "");                
                 $(this).children(".tweet-url.username").html("@"+$(this).children(".tweet-url.username").text());
                 //$(this).html(this);
               });
+              */
             }
-          </script>-->
+          </script>
        
         <div class="twcontrols">
           <div class="user">
@@ -41,7 +50,7 @@
             <a class="user_name" href="http://twitter.com/<%= tweet.username %>" target="_blank">@<%= tweet.username %></a>
             
                 <% if tweet.retweeted_by != "" %>
-           <!-- <a class="user_name" href="http://twitter.com/<%= tweet.retweeted_by %>" target="_blank">/ RT por @<%= tweet.retweeted_by %></a>-->
+                <!--<a class="user_name" href="http://twitter.com/<%= tweet.retweeted_by %>" target="_blank">/ RT por @<%= tweet.retweeted_by %></a>-->
                 <% end %>
             
           </div>
@@ -55,8 +64,7 @@
               <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "rt" %>
             <% else %>
               <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "rt true" %>
-            <% end %>        
-           <!-- <%= link_to "", "#", :remote => true ,  id:tweet.id , class: "save" %>-->
+            <% end %>
           </div>
         </div>
       </div>            

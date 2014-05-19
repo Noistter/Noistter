@@ -1,0 +1,15 @@
+
+    <% @tpuntuacion.each do |tweet| %>
+      <div class="twcard status_<%= tweet.id %>">
+        <p class="tweettext">[N]
+          <%= tweet.text.html_safe %>
+        </p>
+       
+        <div class="twcontrols">
+          <div class="user">
+            <a class="user_perfil" href="http://twitter.com/<%= tweet.username %>" target="_blank"><%= image_tag tweet.perfilimg, class:'avatar' %> </a>
+            <a class="user_name" href="http://twitter.com/<%= tweet.username %>" target="_blank">@<%= tweet.username %></a>
+          </div> 
+        </div>
+      </div>
+    <% end %>

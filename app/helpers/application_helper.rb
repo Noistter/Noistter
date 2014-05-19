@@ -2,7 +2,7 @@ require 'twitter-text'
 module ApplicationHelper
   #CONVERTIR TEXTOS DE LINK EN ENLACES
   include Twitter::Autolink
-  
+
   #CLASE TPUNTUADO, CON LOS TWEETS FORMATEADOS PARA MOSTRAR
   class Tpuntuado
       def initialize (id, puntuacion, username, text, link, perfilimg, favorite_count, retweet_count, respuestas, retweeted_by, retweeted, favorited)

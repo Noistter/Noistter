@@ -1,0 +1,15 @@
+          
+            <% @rss.each do |rss| %> <!--#para cada rss mostramos su ['tipo'] y su  ['termino']-->
+              <article class="sixteen columns item_rss">
+                <div class="about_rss">  
+                  <span><%=rss['tipo']%> con término: "<%=rss['termino']%>"</span>
+                  <a href="/buscar/<%=rss['tipo']%>/<%=rss['termino']%>">Ver en noistter</a>
+                </div>
+                <div class="link_rss"> <input type="text" class="" value="http://noistter.herokuapp.com/rss/<%=rss['tipo']%>/<%=rss['termino']%>/atom.rss"> </div>
+                <div class="edit_rss edit_rss1">
+                  <a href="/rss/<%=rss['tipo']%>/<%=rss['termino']%>/atom.rss">Ver RSS</a>
+                  <a class="borrar_rss" href="/rss/borrar_rss/<%=rss['tipo']%>/<%=rss['termino']%>">Eliminar</a>
+                </div>
+              </article>
+             <% end %>
+          

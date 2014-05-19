@@ -1,7 +1,11 @@
 <section class="container">
-  <div class="sixteen columns"><h1>Búsqueda: <%=@opcion%><%=@titulo%></h1></div>
-  <!--<div id="bt_guardar_busq">GUARDAR</div>-->
-  <%=@guard_tipo%>
-  <%=@guard_busqueda%>
+  <div class="sixteen columns">
+    <h1>
+    Búsqueda: <%=@opcion%><%=@titulo%>
+    <% if @no_esta %>
+      <%= submit_tag("Guardar búsqueda", id:"guardar_busqueda" , class:"btn min300 right yellow") %>
+    <% end %>
+    </h1>
+  </div>
   <%= render template: "layouts/resultados" %>
 </section>

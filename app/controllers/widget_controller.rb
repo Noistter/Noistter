@@ -28,7 +28,24 @@ class WidgetController < ApplicationController
       @hashtag = "#"+@hashtag
     end
          
-    @tpuntuacion = evaluar('hashtag', @hashtag )
+    @tpuntuacion = evaluar_evento('hashtag', @hashtag, 0,0,0 )
+  end
+  
+  
+  @@notamedia=[0,0]
+  @ids=[]
+  def update
+    @hashtag=params[:hashtag]
+     if @hashtag[0]!='#'
+       @hashtag_name="#"+@hashtag
+     else
+        @hashtag_name=@hashtag       
+     end     
+    @id_since=params[:id_since]
+    puts  "id since "
+    puts  @id_since 
+    
+    @tpuntuacion = evaluar_evento('hashtag', @hashtag, @id_since, @@notamedia, @ids)
   end
   
 end

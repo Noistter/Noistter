@@ -5,7 +5,6 @@
   </div>
   <div class="one-third column">
      <select id="rss_tipo">
-      <option value="timeline">Timeline</option>
       <option value="hashtag">Hashtag</option>
       <option value="usuario">Usuario</option>
       <option value="termino">Término</option>
@@ -15,29 +14,20 @@
      <input type="text" id="rss_termino" class="" placeholder="Búsqueda">
   </div>
   <div class="one-third column">
-    <a href="javascript(0);" class="btn yellow wfull h45 nomargin" id="previa_rss">Vista previa</a>
+    <a href="javascript:void(0)" class="btn yellow  h45 nomargin" id="previa_rss">Vista previa</a>
+    <a href="javascript:void(0)" id="btn_guardar_rss" class="btn orange  h45 nomargin" id="guardar_rss"> Guardar RSS </a>
   </div>
   <div id="vista_previa">
     
   </div>
-  <div class="sixteen columns ">
+ <!--<div class="sixteen columns">
       <a href="javascript:void(0)" id="btn_guardar_rss" class=" btn center h45 big max300 yellow" id="guardar_rss"> Guardar RSS </a>
-  </div>
+  </div>-->
   
   <div class="sixteen columns">
     <h2>Mis RSS</h2>
   </div>
-  
   <div class="all_rss">
-    <% @rss.each do |rss| %> <!--#para cada rss mostramos su ['tipo'] y su  ['termino']-->
-    <article class="sixteen columns item_rss">
-      <div class="about_rss">  <span><%=rss['tipo']%> con término: "<%=rss['termino']%>"</span>   </div>
-      <div class="link_rss"> <input type="text" class="" value="http://noistter-87490.euw1.nitrousbox.com/rss/<%=rss['tipo']%>/<%=rss['termino']%>/atom.rss"> </div>
-      <div class="edit_rss edit_rss1">
-        <a href="http://noistter-87490.euw1.nitrousbox.com/rss/<%=rss['tipo']%>/<%=rss['termino']%>/atom.rss">Ver</a>
-        <a href="#">Editar</a>
-      </div>
-    </article>
-    <% end %>
+    <%= render partial: 'all_rss' %>
   </div>
 </section>

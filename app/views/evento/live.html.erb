@@ -1,29 +1,33 @@
 
 <div class="eight columns video_cont">
-  <div class="banner">
+  <!--<div class="banner">
     <img src="https://dl.dropboxusercontent.com/u/12328089/banner.png" class="scale-with-grid"/>  
-  </div>
+  </div>-->
 <div class="iframecontent">
   <iframe width="560" height="315"  src="//www.youtube.com/embed/<%= @id_video %>?theme=light&autoplay=1" allowfullscreen></iframe>
   </div> 
   <h1><%= @hashtag_name %></h1>
+  
 </div>
-<div class="eight columns"> 
+<script>
+  /*$( "#bt_update_evento" ).click(function() {
+     alert("Hola");
+	});*/
+</script>
+<div class="eight columns evento_twcard_cont"> 
+  
     <% @tpuntuacion.first(20).each do |tweet| %>
-      <div class="twcard">
+      <div class="twcard status_<%= tweet.id %>">
         <p class="tweettext">
           <%= tweet.text.html_safe %>
         </p>
        
         <div class="twcontrols">
           <div class="user">
-            <a class="user_perfil" href="http://twitter.com/<%= tweet.instance_variable_get(:@username) %>" target="_blank"><%= image_tag tweet.instance_variable_get(:@perfilimg), class:'avatar' %> </a>
-            <a class="user_name" href="http://twitter.com/<%= tweet.instance_variable_get(:@username) %>" target="_blank">@<%= tweet.instance_variable_get(:@username) %></a>
+            <a class="user_perfil" href="http://twitter.com/<%= tweet.username %>" target="_blank"><%= image_tag tweet.perfilimg, class:'avatar' %> </a>
+            <a class="user_name" href="http://twitter.com/<%= tweet.username %>" target="_blank">@<%= tweet.username %></a>
           </div> 
         </div>
       </div>
     <% end %>
- </ul>
-
-
 </div>
