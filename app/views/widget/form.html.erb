@@ -13,9 +13,9 @@
           while(a.charAt(0) === '#')
             a = a.substr(1);
           
-           iframe = '<iframe src="http://noistter-87490.euw1.nitrousbox.com/widget/'+a+'" style="border: none; max-width: 100%; width: 100%; min-width: 180px;" name="Widget via Noistter" height="'+b+'"></iframe>'; 
+           iframe = '<iframe src="http://noistter.herokuapp.com/widget/'+a+'" style="border: none; max-width: 100%; width: 100%; min-width: 180px;" name="Widget via Noistter" height="'+b+'"></iframe>'; 
            $("#ifres").val(iframe);
-           c = 'http://noistter-87490.euw1.nitrousbox.com/widget/'+a+'';
+           c = 'http://noistter.herokuapp.com/widget/'+a+'';
            $('#vista_previa').attr('src',c);
            $('#vista_previa').attr('height',b);
            $('#vista_previa').slideDown();
@@ -44,7 +44,7 @@
     <span class="widget_paso">1</span>
       <p>Para crear un widget de Noistter, debes eligir un hashtag y un tamaño. Luego, haz clic en generar.</p>
       <label for="hashtag">Hashtag a seguir:</label>
-      <input type="text" placeholder="Hashtag" id="hashtag" value="StopTortura">
+      <input type="text" placeholder="Hashtag" id="hashtag" value="">
       <label for="ifheight" >Altura del widget (px):</label>
       <input type="text" placeholder="Altura" id="ifheight" value="400">
       <a href="javascript:void(0);" class="btn h45 right wfull yellow">Generar</a>

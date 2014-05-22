@@ -30,16 +30,19 @@
   <div class="sixteen columns">
     <h2>Búsquedas guardadas</h2>
     <p>Click para ver la búsqueda</p>
+    <% if @busquedas.count == 0  %>
+        <p>No has guardado ninguna búsqueda</p>
+    <% end %>
   </div>
   <div class="sixteen columns item_search_cont">
-    <% @busquedas.each do |busqueda| %>
-      <article class="item_search">
-        <a href="/buscar/<%=busqueda['tipo']%>/<%=busqueda['termino']%>/" class="btn bigger">
-          <% if busqueda['tipo'] == "hashtag"%><%="#"%><% end%>
-          <% if busqueda['tipo'] == "usuario"%><%="@"%><% end%><%=busqueda['termino']%></a>
-          <a href="/borrar_busqueda/<%=busqueda['tipo']%>/<%=busqueda['termino']%>/" class="btn crimson delete_item">X</a>
-      </article>
-    <% end %>
+      <% @busquedas.each do |busqueda| %>
+        <article class="item_search">
+          <a href="/buscar/<%=busqueda['tipo']%>/<%=busqueda['termino']%>/" class="btn bigger">
+            <% if busqueda['tipo'] == "hashtag"%><%="#"%><% end%>
+            <% if busqueda['tipo'] == "usuario"%><%="@"%><% end%><%=busqueda['termino']%></a>
+            <a href="/borrar_busqueda/<%=busqueda['tipo']%>/<%=busqueda['termino']%>/" class="btn crimson delete_item">X</a>
+        </article>
+      <% end %>
   </div>
 
   <div class="sixteen columns">
@@ -49,7 +52,7 @@
     <%= render partial: 'rss/all_rss' %>
     <div class="sixteen columns"><a href="/rss" class="btn orange big center">Nuevo RSS</a></div>
   </div>
-  
+  <%if @tfavoritos.count != 0 %>
   <div class="sixteen columns">
     <h2>Tweets favoritos</h2>
   </div>
@@ -92,7 +95,10 @@
     <% end %>
     
   </div>
+   
   <% if i > 3 %>
   <div class="sixteen columns"><a id="ver_mas" href="javascript:void(0)" class="btn yellow big center">Ver más</a></div>
   <% end %>
+    
+ <% end %>
 </section>

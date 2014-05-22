@@ -266,7 +266,7 @@ $( document ).ready(function() {
           $( ".evento_container" ).html(response);
           setTimeout(function(){  actualizar_evento(hashtag); }, 20000);
       }, 
-	  	error: function() { $( ".evento_container" ).append('Error al enviar!'); }
+	  	error: function() { $( ".error_form" ).html('<p>Introduce un hashtag y un enlace de Youtube.</p>'); }
 	   });
 	  return(false); 
 	});

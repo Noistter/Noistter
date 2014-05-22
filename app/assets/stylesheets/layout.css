@@ -116,6 +116,7 @@ margin-right: 15px; }
 
 .boardcard {  padding-bottom: 10px; padding-top: 10px;    }
 .boardcard p, .boardcard h2 {  margin-bottom: 5px; padding:0px 10px; }
+.boardcard p { min-height:130px; }
 .boardcard img { margin: 0 auto; display: block; }
 .columns .twcard  { width: 100%; padding-bottom: 40px;  }
 
@@ -160,11 +161,11 @@ margin-right: 15px; }
 .twcontrols .control { float: right; }
 .twcontrols .control a { width: 30px; display: inline-block;  height: 30px;    color: #fff; padding: 5px; text-align: center;   text-indent: -9999px; cursor: pointer; }
 
-.twcontrols .fav, .twcontrols .unfav { background: #666 url(https://dl.dropboxusercontent.com/u/12328089/CSS/noistter/sprite.png) 3px 4px; }
+.twcontrols .fav, .twcontrols .unfav { background: #666 url(../images/sprite.png) 3px 4px; }
 .twcontrols .fav.true, .twcontrols .unfav.true { background-position:3px -28px; }
-.twcontrols .rt ,  .twcontrols .unrt { background: #666 url(https://dl.dropboxusercontent.com/u/12328089/CSS/noistter/sprite.png) -29px 3px; }
+.twcontrols .rt ,  .twcontrols .unrt { background: #666 url(../images/sprite.png) -29px 3px; }
 .twcontrols .rt.true,  .twcontrols .unrt.true { background-position: -29px -28px; }
-.twcontrols .save, .twcontrols .unsave { background: #666 url(https://dl.dropboxusercontent.com/u/12328089/CSS/noistter/sprite.png) -59px 1px; }
+.twcontrols .save, .twcontrols .unsave { background: #666 url(../images/sprite.png) -59px 1px; }
 .twcontrols .save.true, .twcontrols .unsave.true { background-position: -59px -30px;  }
 
 .twcontrols .fav:hover {  background-position:3px -28px; }
@@ -264,19 +265,19 @@ margin-right: 5px; }
 		height: 30px; margin-left: 10px; transition: all 0.1s linear; }
 .icon_tuitear {
 		
-		background: url(https://dl.dropboxusercontent.com/u/12328089/CSS/noistter/sprite.png) no-repeat -103px -5px;
+		background: url(../images/sprite.png) no-repeat -103px -5px;
 }
 
 .icon_perfil {
-		background: url(https://dl.dropboxusercontent.com/u/12328089/CSS/noistter/sprite.png) no-repeat -138px -5px;
+		background: url(../images/sprite.png) no-repeat -138px -5px;
 }
 
 .icon_rss {
-		 background: url(https://dl.dropboxusercontent.com/u/12328089/CSS/noistter/sprite.png) no-repeat -170px -5px;
+		 background: url(../images/sprite.png) no-repeat -170px -5px;
 }
 
 .icon_exit {
-background: url(https://dl.dropboxusercontent.com/u/12328089/CSS/noistter/sprite.png) no-repeat -206px -5px;
+background: url(../images/sprite.png) no-repeat -206px -5px;
 }
 
 
@@ -382,7 +383,7 @@ display: inline-block;
 float: left;
 width: 20px;
 height: 20px;
-background: url(https://dl.dropboxusercontent.com/u/12328089/CSS/noistter/sprite.png) no-repeat  -39px -68px;
+background: url(../images/sprite.png) no-repeat  -39px -68px;
  }
 
 .gatillo.desplegado .gatillo_row { 
@@ -398,7 +399,7 @@ background: url(https://dl.dropboxusercontent.com/u/12328089/CSS/noistter/sprite
 		float: left;
 		width: 20px;
 		height: 20px;
-		background: url(https://dl.dropboxusercontent.com/u/12328089/CSS/noistter/sprite.png) no-repeat -7px -70px;
+		background: url(../images/sprite.png) no-repeat -7px -70px;
 }
 
 
@@ -449,7 +450,17 @@ margin: 0px 5px;  }
 }
 
 .item_widget { border-top: 4px solid #107507; }
-/*ENVENTOS*/
+/*EVENTOS*/
+
+.error_form {
+max-width: 60%;
+display: inline-block;
+float: left;
+border-radius: 10px;
+background: rgb(255, 178, 178);
+}
+
+.error_form p { font-size: 13px; }
 
 .item_evento { border-top: 4px solid #CF0858; }
 .banner {
@@ -505,7 +516,7 @@ clear: both;
 			
 		.logo_cont {   margin-left: 4%; }
 		.gatillo_menu { display: inline-block; width: 32px; height: 30px; 
-			background: url(https://dl.dropboxusercontent.com/u/12328089/CSS/noistter/sprite.png) no-repeat -4px -90px; float: right; margin-right: 4%; margin-top: 10px; cursor: pointer; }
+			background: url(../images/sprite.png) no-repeat -4px -90px; float: right; margin-right: 4%; margin-top: 10px; cursor: pointer; }
 		.close_menu {
 			display: block;
 			text-align: center;
@@ -564,13 +575,11 @@ clear: both;
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
 
-	 .header_social li a.social_icon.tw, .header_social li a.social_icon.tw:hover , .header_social li a.social_icon.fb , .header_social li a.social_icon.fb:hover, .header_social li a.social_icon.gplus, .header_social li a.social_icon.gplus:hover, a.call:hover , a.call{
-		/* Reference the @2x Sprite */
-		background-image: url(sprite@2x.png);
-		/* Translate the @2x sprite's dimensions back to 1x */
-		background-size: 300px 300px; 
+	 .twcontrols .fav, .twcontrols .rt, .icon_tuitear{
+		background-image: url(../images/sprite@2x.png);
+		background-size: 400px 400px; 
 	}
 
-	.home .trigger_menu { background:  #4BAA2A url(sprite@2x.png) 0px -98px; background-size: 300px 300px; }
+	.home .trigger_menu { background:  #4BAA2A url(../images/sprite@2x.png) 0px -98px; background-size: 400px 400px; }
 }
 

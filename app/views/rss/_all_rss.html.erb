@@ -1,4 +1,6 @@
-          
+          <% if @rss.count == 0  %>
+              <p>No has guardado ningún RSS</p>
+          <% else %>
             <% @rss.each do |rss| %> <!--#para cada rss mostramos su ['tipo'] y su  ['termino']-->
               <article class="sixteen columns item_rss">
                 <div class="about_rss">  
@@ -12,4 +14,5 @@
                 </div>
               </article>
              <% end %>
+          <% end %>
           
